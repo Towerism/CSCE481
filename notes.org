@@ -214,3 +214,121 @@ You are presenting the professional version of yourself
 - career fair
 **** Formally
 - follow up interview
+* Writing for CS
+** Summary
+*** Specifics for writing research papers
+**** Commonly done in grad school
+**** Other topics
+- Proposals
+- Technical documents (E.g. Algorithm description
+- Executive summaries
+**** Title
+- important
+- keywords
+- memorable
+**** Intro
+- May be the only thing someone reads
+- Needs to catch their attention
+- Short, related to rest of paper
+- What is the motivation (Why would anyone want to read this)
+- What is the importance (think of marketing)
+**** Summarize main results
+- Make results clear
+- Don't hide or surprise at the end
+- Most people will not read full paper - inform them the main resuts
+- Should be in abstract
+- SHould be in intro
+  - Main results, contributions (what am i contributing to the knowledge of
+    computer science), thesis statement
+- Can be in conclusion
+**** Main results section
+- Subsection, paragraph, bulleted list, or a sentence
+- Easy to find/locate
+- Make clear the new, unique contribution of this work
+  - Not a summary of everything you've done or even a summary of the paper
+  - just the key points that are new to your work
+**** Thesis statement
+- SHort statement summarizing the focus of the paper
+- Can help focus your writing, presentation, research
+- Goal of the paper is to show why the thesis statement is important and true
+  (or false...)
+**** Previous works section
+- Provide references to relevant material
+  - key papers someone should read to understand
+  - most relevant related papers/alternatives
+- Demonstrate that you are familiar with the main research in the area
+  - Ensure you cite all the relevant work
+    - Especially the papers of those who will read oyurs
+  - Can't cite everything; cite the most important things
+  - usually, citations to textbooks aren't needed
+    - unless that textbook provides a unique derivation, a particular summary,
+      etc.
+- Good to show how prev work fits in with what you're doing
+**** New work
+- main, core work
+- clear and accurate
+- not just listing what you did
+**** Caveats
+- Develop material clearly
+  - Someone will read this section in order
+  - Don't pull ideas/material from nowhe
+- Avoid tangential topics
+  - use appendices if necessary
+- Mkae sure there is a clear overview
+**** Future works
+- Avoid throwaway works
+**** Audience
+- Make sure you are writing to the appropriate audience
+- Usually, this is to other researchers in the field
+  - Not to novices - they only know the basics
+  - Not necessarily to the foremost experts - they may not be familiar with
+    every bit of prior work
+  - Not to expoerts in all areas - they may not be familiar with simpler
+    concepts from other fields
+- Some papers (e.g. literature reviews) are for more general, less expert,
+  audiences
+*** Actual summary
+The purpose the lecture s to show us how writing is done in Computer Science. It
+explains how to have good organization, grab the reader's attention, and
+demonstrate good ethics. Good organization means having sections which are easy
+to find, making it clear what the purpose of the paper is, and keeping your
+information relevant to your contributions. It is important to grab the reader's
+attention in the abstract and in the intro which tends to imply that one targets
+the appropriate audience. The professor said it is almost like
+marketing. Demonstrating good ethics means adequately providing references to
+relevant material and being honest about your results.
+** Thoughts
+- Even though this is a CS class, the purpose of the class is clearly to prepare
+  me for any kind of professional writing throughout my career
+- Purpose of the intro is to get them to read the rest of the document:
+  something that seems obvious, but many people may forget this when summarizing
+  their paper
+- Writing an intro is like marketing. What an intersting way to look at
+  introductions. I'm taking marketing this semester, so this really struck me as
+  interesting. Professer <Name> even said that the abstract seems to be almost
+  purely marketing.
+- Summarizing main results is not just about keeping surprises to a minimum, but
+  also a matter of ethics. You don't want to obscure or omit results that you
+  think would detract from your motivation
+  - I.e. if you find your thesis statement is false, then you make that clear
+- The interesting phrase that professor <name> used when talking about main
+  results was 'step forward'. I can use this to remember that writing a main
+  results section is about informing the reader what that 'step forward' is.
+- I wasn't familiar with a previous work section before this class. I found it
+  interesting that the goal of it is to show readers you've done an exhaustive
+  search on the matter
+*** Aggregated thoughts
+Even though this is a CS class, the purpose of the class is clearly to prepare
+me for any kind of professional writing throughout my career. Often times when I
+write for academics I'm just following a rubric, but this lecture reminded me
+what is at the heart of writing: convincing the reader that I have something
+important to say, and then say it. The fact that the professor likened writing
+introductions and abstracts to marketing really illustrated this for me. 
+
+I also found some ethical aspects of writing intersting: keeping surprises to a
+minimum and keeping the main results section to new discoveries. Sometimes when
+writing, one may feel like they don't want to spoil the results or one may even
+omit certain results altogether. Before this class I wasn't familiar with
+previous works sections, but the idea of letting the reader know about other
+related works seems to fit into ethics since it allows one to acknowledge other
+remarkable people in the field as well as set the context for the paper.
