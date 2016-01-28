@@ -8,20 +8,20 @@ The purpose of the lecture is to show us how writing is done in Computer Science
 and exercise good ethics. Having good organization means having sections which are
 easy to find, making it clear what the purpose of the paper is, and keeping one's 
 information relevant to one's contributions. It is important to grab the reader's
-attention in the abstract and in the intro which tends to imply that one targets
+attention in the abstract and in the intro which tends to imply one targets
 the appropriate audience. The professor said it is almost like
 marketing. Demonstrating good ethics means adequately providing references to
-relevant material, being honest about one's results, and being honest about the
+relevant material and being honest about one's results and the
 importance of one's work.
 * Thoughts
 Even though this is a CS class, the purpose of the class is clearly to prepare
 me for any kind of professional writing throughout my career. Often times when I
 write for academics I am just following a rubric, but this lecture reminded me
-what is at the heart of writing: convincing the reader that I have something
+what is at the heart of writing: convince the reader I have something
 important to say, and then say it. The fact that the professor likened writing
 introductions and abstracts to marketing really illustrated this for me. 
 
-I also found some ethical aspects of writing intersting: keeping surprises to a
+I also found some ethical aspects of writing interesting: keeping surprises to a
 minimum and using the main results section only for new discoveries. Sometimes
 when writing, one may feel like they do not want to spoil the results or one may
 even omit certain results altogether. Before this class I was not familiar with
