@@ -1,0 +1,13 @@
+#+TITLE: Long Assignment 1
+#+AUTHOR: Martin Fracker
+#+OPTIONS: toc:t
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+LATEX_HEADER: \input{titlepage}
+\newpage
+* Introduction
+* Summary
+* Methods
+* Results
+* Discussion
+* Conclusions
+* Recommendations
