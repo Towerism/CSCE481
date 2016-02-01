@@ -7,13 +7,18 @@
 {\Huge Fracker, Martin\par} 
 \vspace*{1\baselineskip}
 
-CSCE 481 Section 500\\[\baselineskip]
+CSCE 481 Spring 2016\\[\baselineskip]
 
 \vspace*{1\baselineskip}
 \today
 
 \vspace*{5\baselineskip} 
-{\LARGE Long Assignment 1} % Title
+{\LARGE Long Assignment 1} \\[\baselineskip]
+
+\vspace*{1\baselineskip}
+\scshape
+Version 1
+\textup
 
 \vspace*{5\baselineskip} 
 This work represents my individual work, and I have listed the sources that I
