@@ -1,0 +1,30 @@
+#+TITLE: Seminar Report 3
+#+AUTHOR: Martin Fracker
+#+OPTIONS: toc:nil num:nil
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+* Summary
+This lecture was an overview of career center services and hiring
+statistics. Dr. McMahon started out by asking students to give their feedback on
+the career fair last week. He then talked about the various services that can be
+accessed on the career center website, the services students can take advantage
+of by walking in or setting up an appointment, as well as experiential
+education. Services on the website include salary, relocation statistics, resume
+templates, and job postings. Students who come in person can take advantage of
+various services such as one-on-one advice, workshops, and mock
+interviews. Experiential education includes activities such as AggieExternship,
+cooperative education, and internships that provide credits. Activities such as
+these are what make attractive job candidates. At the end, various statistics
+were covered such as hiring bonus data and graduate status groups like
+'employed', 'seeking', 'offered and seeking', etc.
+* Thoughts
+Dr. McMahon showed how much he was invested in improving the career information
+he gives to students when he started out the lecture asking students about their
+experience at the career fair. It was a good, positive way for him to start the
+lecture. Unfortunately, I was not too surprised when Dr. McMahon told us about
+how few students take advantage of some of the services such as AggieExternship
+because I myself do not take advantage of career center services. I also thought
+it was interesting that Dr. McMahon said it was good to work for various
+companies to experience various aspects of the industry. Although one student
+demonstrated that it can be good to have an internship with the same company
+twice in a row, Dr. McMahon stressed that a combination of maintaining contacts
+and working for several companies can really boost one's marketability.
