@@ -1,0 +1,28 @@
+#+TITLE: Seminar Report 4
+#+AUTHOR: Martin Fracker
+#+OPTIONS: toc:nil num:nil
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+* Summary
+This lecture was about preparing for an interview. Preparing for an interview
+means learning about the company, preparing for questions, knowing one's career
+goals, and, most importantly, making a good impression. First, companies are impressed
+to see interest in the company. A good way to learn about the company is to
+attend an informational. It can be an indication of future loyalty. Next, prepare for
+questions so that answering questions such as "Describe a time in your life that
+you failed" is effortless. Then, it is important to know one's career goals in order
+to have realistic expectations in terms of salary, type of work, etc. Finally,
+impressions are everything. Simple things like showing up late and chewing gum will
+put one's resume on the fast track to the trash can.
+
+* Thoughts
+Dr. McMahon certainly is a man of repetition; but I think that indicates how
+important these concepts are. For example, he really likes to re-iterate how
+important it is to convey knowledge of the company's website. Another thing he
+re-iterated today was how important first impressions are. First impressions
+really are important. Whether you leave a bad taste in someone's mouth will
+heavily determine whether they will want to see you again in the future. I
+really like an example Dr. McMahon gave about a woman who scheduled an interview
+during finals. The woman bombed her interview because she did not have time to
+prepare for it. The take-away is that it is better to reschedule than
+bomb an interview due to time constraints.
+

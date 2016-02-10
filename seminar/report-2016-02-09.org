@@ -1,0 +1,36 @@
+#+TITLE: Seminar Report 5
+#+AUTHOR: Martin Fracker
+#+OPTIONS: toc:nil num:nil
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+* Summary
+This seminar was an interactive lecture on company visits. Topics discussed
+include dress, questions to ask, knowledge of of the company, and interaction
+with employees. Firstly, one's attire is one of the primary aspects of a first
+impression. To find out what attire would be appropriate one should ask his or
+contact within the company or the host of the event. With respect to attire,
+things to consider are events that one will participate in such as dinner
+afterwards and how long one will be at the event. Next, asking the right
+questions could not only improve your understanding of the company but also
+demonstrate one's diligent research into the company. Asking about the company's
+management style can help one discern if he or she is a good fit for the
+company; on the other hand, asking about how a company's clients react to an
+agile workflow can indicate one's knowledge of the industry as well as the
+company's management style while still gaining more knowledge of the
+company. Thus, it is important to do research before making a company
+visit. Demonstrating company and industry knowledge can go a long way in making
+a good first impression. Sources to consult on this matter include the company
+website and Google. Researching the company's needs can allow one to sell him-
+or herself in terms of those needs. Finally, adequately preparing for
+interaction with company employees can vastly improve your impression during
+events such as interviews. For example, learning about the recruiter who will be
+asking the questions can give one an advantage over other candidates.
+* Thoughts
+It was nice to have a new lecturer. The interactive format was fresh, and there
+was no power point which allowed me to concentrate on what the lecturer was
+saying. I find it interesting that the more lectures I have to listen to from
+the career center, the less I am able to conceive new thoughts on the lecture
+content, and the more I tend to remember similar points made in prior
+lectures. For example, the themes have consistently been preparedness and first
+impressions. If I had to sum up all of the career center lectures thus far, I
+would say the main idea is as follows: prepare oneself with the tools
+necessary to make a good first impression.
