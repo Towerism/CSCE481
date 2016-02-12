@@ -1,0 +1,32 @@
+#+TITLE: Seminar Report 6
+#+AUTHOR: Martin Fracker
+#+OPTIONS: toc:nil num:nil
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+* Summary
+This seminar was about salary evaluations. The job market, he said at the
+beginning was a buyer's market. He went over different types of employees, types
+of pay, benefits, negotiation. Employees market themselves to companies, and companies buy
+them. Sometimes the company will employ someone temporarily and full-time at
+other times. It depends on the type of employee. For example interns are
+employed for a short period of time. Full-time employees are generally employed
+until they quit or they are fired. Different types of pay include salary,
+hourly, commission, fee, and stock. Many times companies will offer a
+combination like salary and stock. Many employers will compensate employees with
+benefits such as relocation assistance and insurance. Often employers will offer
+a 401k program in which they may match whatever money you put into a 401k
+retirement fund. Everything should be taken into account when deciding on which
+offers to accept. But before you are given an offer, there is most likely some
+negotiation about salary and compensation. Most employers will try to pay you as
+little as they have to, but your goal should be to figure out what their maximum
+pay will be.
+
+* Thoughts
+I thought it was interesting how I saw a figure which demonstrated how saving
+early pays off more than saving later which I recognized from 2 and half years
+ago back when I attended my new student conference. I was happy to hear that it
+is okay to have preferences. For example, I might say that I would prefer to be
+located in College Station, but I am open to re-locating. I thought it was
+interesting how the goal of negotiation was argued to be uncovering what the
+maximum pay an employer will offer is. This may not be the best idea as if this
+is the upper end of the pay grade, you may be out of the running for a raise
+unless promotion is a possibility in the future.
