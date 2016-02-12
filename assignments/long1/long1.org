@@ -3,11 +3,37 @@
 #+OPTIONS: toc:t
 #+LATEX_HEADER: \usepackage[margin=1in]{geometry}
 #+LATEX_HEADER: \input{titlepage}
+#+LATEX_HEADER: \bibliographystyle{plain}
+
 \newpage
 * Introduction
 * Summary
 * Methods
 * Results
+** Ethics
+Lin from the Atlantic, in his article, "The Ethics of Autonomous Cars,"
+ultimately makes one good point: although the rise of autonomous cars brings
+with it obvious benefits, there is the question of implementing solutions to
+virtually every ethical problem that has ever happened and ever will happen on
+the road cite:ethicsof. Lin believes that robot cars are coming whether we like
+it or not and implies that leaving robot cars unregulated as they currently are
+may result in terrible happenings that would stand as precedence for regulation
+cite:ethicsof.
 * Discussion
+Lin approaches the topic of autonomous cars from an ethical perspective, and
+thus applies simple logic to arrive at conclusions that seem to go against most
+peoples' moral compasses. Although I do not agree with some of the applicability
+of his hypothetical examples, I agree that the ethical programming problem is a
+great obstacle in agreeing how we should approach forming laws on the
+matter. 
+
+There are obviously three ways to handle the laws: 1) prohibit robot cars on
+public roads, 2) refrain from regulation, and 3) regulate robot cars on the
+road. 1 does not seem to be the answer, as autonomous cars in many ways would be
+great for society. 2 would result in all of the ethical issues Lin mentioned
+left unanswered. It seems that regulation is the answer and, furthermore, should
+be proactive rather than waiting for precedence to set our laws.
 * Conclusions
-* Recommendations
+* Recommendation
+
+bibliography:references.bib
