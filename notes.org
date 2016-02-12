@@ -368,3 +368,20 @@ remarkable people in the field as well as set the context for the paper.
 - Learn who is doing the interview
   - Learn more about that person
 - Being able to communicate is important
+* Salary Evaluations
+** Compensation package
+- Get the offer in writing
+- Then evaluate
+  - Pay
+  - Benefits
+  - Health
+** Types of pay
+| Starting Salary    | Career Salary                     |
+|--------------------+-----------------------------------|
+| Salary             | Cost of Living Allowance increase |
+| Hourly             | Merit increase vs. Merit Bonus    |
+| Commision          | Profit Sharing                    |
+| Fee                | Stock Options                     |
+| Signing Bonus      |                                   |
+| :: Payout Schedule |                                   |
+| Stock              |                                   |
