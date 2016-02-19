@@ -1,24 +1,61 @@
 #+TITLE: Long Assignment 1
 #+AUTHOR: Martin Fracker
-#+OPTIONS: toc:t
+#+OPTIONS: toc:nil num:nil
 #+LATEX_HEADER: \usepackage[margin=1in]{geometry}
 #+LATEX_HEADER: \input{titlepage}
 #+LATEX_HEADER: \bibliographystyle{plain}
 
 \newpage
 * Introduction
-* Summary
-* Methods
-* Results
-** Ethics
-Lin from the Atlantic, in his article, "The Ethics of Autonomous Cars,"
-ultimately makes one good point: although the rise of autonomous cars brings
-with it obvious benefits, there is the question of implementing solutions to
-virtually every ethical problem that has ever happened and ever will happen on
-the road cite:ethicsof. Lin believes that robot cars are coming whether we like
-it or not and implies that leaving robot cars unregulated as they currently are
-may result in terrible happenings that would stand as precedence for regulation
+Are we ready for the robot car to grace our highways? Robot cars seem to carry
+many benefits. In short they appear to me more reliable humans. You will not see
+a robot car being pulled over for a BAC over 0.08 or for texting while
+driving. Why then do we still manually steer our cars everywhere we go?
+
+I surveyed a few articles to determine the benefits and ethics of robot cars.
+Autonomous cars according to many articles will prevent many accidents on the
+road but pose several ethical problems, like those faced in so called "no-win"
+cite:savinglives situations. To address ethical concerns I recommend regulating
+product testing standards for robot car manufacturers to abide by.
+* Benefits
+Robot cars seem to carry with them many benefits. Humans, according to Bilger,
+are terrible drivers cite:autocorrect. People tailgate. They talk and text on
+their cellphones. Besides being slow to react, people are also impatient and can
+be irrational. According to Bilger, most of the ten million car accidents that happen
+in America can be avoided.
+
+Bilger in his article, Auto Correct, using several examples shows how robot
+cars are more reliable than humans at driving cite:autocorrect. In one example,
+Bilger demonstrates that a robot car can sense the car in front of him slowing
+down long before he can cite:autocorrect. In another, Bilger explains that a
+robot car can avoid another car drifting into its lane cite:autocorrect.
+* Ethics
+Not all of Bilger's examples put robot cars in a positive light, however. For
+example, a car that Bilger was in accelerated up to over 70 miles per hour
+after turning into a parking lot because the car did not sense any cars in front
+of it cite:autocorrect. 
+
+There are more issues such as pedestrians and traffic cops that at a glance seem
+would cause problems for smart cars cite:autocorrect. Other more complex
+situations can cause problems for robot cars such as a large piece of debris in
+the middle of the road. A human driver would go around it, but as Lin states a
+robot car may simply stop if no other action appears to be legal cite:ethicsof.
+
+Lin from the Atlantic, in his article, The Ethics of Autonomous Cars, ultimately
+makes one good point: although the rise of autonomous cars brings with it
+obvious benefits, there is the question of implementing solutions to virtually
+every ethical problem that has ever happened and ever will happen on the road
+cite:ethicsof. Lin believes that robot cars are coming whether we like it or not
+and implies that leaving robot cars unregulated as they currently are may result
+in terrible happenings that would stand as precedence for regulation
 cite:ethicsof.
+
+Lin states that it would be reasonable to hold robot car manufacturers to higher
+standards than we do human drivers cite:ethicsof. Indeed, in a driving test
+humans are not faced with every single problem they will ever encounter in their
+lifetime. However, according to Lin, we believe that they have the common sense
+and the good judgment to act accordingly in those situations, and it is those
+situations that we cannot reasonably trust a robot car cite:ethicsof.
 * Discussion
 Lin approaches the topic of autonomous cars from an ethical perspective, and
 thus applies simple logic to arrive at conclusions that seem to go against most
@@ -27,13 +64,23 @@ of his hypothetical examples, I agree that the ethical programming problem is a
 great obstacle in agreeing how we should approach forming laws on the
 matter. 
 
-There are obviously three ways to handle the laws: 1) prohibit robot cars on
-public roads, 2) refrain from regulation, and 3) regulate robot cars on the
-road. 1 does not seem to be the answer, as autonomous cars in many ways would be
-great for society. 2 would result in all of the ethical issues Lin mentioned
-left unanswered. It seems that regulation is the answer and, furthermore, should
-be proactive rather than waiting for precedence to set our laws.
+Bilge's outlook on robot cars is more optimistic. While he acknowledges the
+problems robot cars are currently facing, he does not deny that humans may
+eventually have to be rational and accept robot cars as better drivers.
 * Conclusions
+We may not be ready for robot cars just yet, but we need to be ready yesterday
+in order to get human drivers off the road. Robot cars will be more reliable
+than humans. After surveying a few articles, I have determined that we need
+robot cars, but they must be regulated.
 * Recommendation
+There are obviously three ways to handle the laws regarding robot cars: 1)
+prohibit robot cars on public roads, 2) refrain from regulation, and 3) regulate
+robot cars on the road. 1 does not seem to be the answer, as autonomous cars in
+many ways would be great for society. 2 would result in all of the ethical
+issues Lin mentioned being left unanswered. It seems that regulation is the answer
+and, furthermore, should be proactive rather than waiting for precedence to set
+our laws. Laws should set product testing guidelines for robot car manufacturers
+and should be strict enough to inspire a similar confidence that we would have
+in a human after passing a driving test.
 
 bibliography:references.bib
