@@ -1,0 +1,58 @@
+#+TITLE: Short Assignment 1
+#+AUTHOR: Martin Fracker
+#+OPTIONS: toc:nil num:nil
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+LATEX_HEADER: \input{titlepage}
+#+LATEX_HEADER: \bibliographystyle{plain}
+
+\newpage
+* Introduction
+The seminar was given by Wen-Hao Liu cite:website, Principle Software Engineer
+on the Clock and flow team at Cadence in Austin, Texas. Cadence, according to
+Liu, is probably the best company to work at for electric design automation
+(eda). His research is focused on EDA Routing, Placement, and Clock. The seminar
+was a case study for an EDA Product from Research to Release. Liu was hired by
+Cadence to develop a new engine for EDA in order to avoid buying another
+company's solution. This is because their previous engine's maintainer was
+retiring and Cadence was unable to maintain it. Besides having several issues,
+the old engine cannot be maintained so development of the new engine began.
+
+* Motivation
+It is very difficult to rely on humans to for electronic design. There are many
+aspects of electronic design that make designs hard to route. For example, there
+are often millions of nets and hundreds of design rules. Thus, the motivation
+for Liu's research is to develop a fast global routing engine to replace the
+existing one for congestion estimation. Of course there is the question: is a
+new engine actually necessary? Customers must be convinced to make the
+switch. Many customers do not like change. However, customers were not happy
+with the current solution. Without a workaround, a new engine was necessary.
+
+Cadence decided that a new engine was necessary, not only because customers were
+unhappy with the old engine but also because the maintainer for the old engine
+had retired. Liu was tasked with managing the project for the new engine. This
+is his case study for the new engine from research to release.
+* New Contribution
+This was the motivation for a new global routing technique to do a fast routing pass, then
+highlight where there is congestion. These highlights are where a more detailed
+routing will be applied. The implemented design looks for opportunities to apply
+fast global routing, and will continually apply this routing until the
+congestion cannot be eliminated further, at which point spreading is applied to
+decrease congestion even more.
+** Project Lifetime
+At this point the new engine is project is 18 months old. During this time
+period, kernel algorithms were developed, the new engine was integrated with
+Cadence's previous workflow, the kernel was reworked, and finally bugs were
+squashed and features enhanced. Interestingly bug squashing and feature
+enhancement took up the largest portion of the 18 months, but the kernel
+reworking was probably the most interesting: why was it necessary?
+*** Kernel Reworking
+Kernel reworking was important because of unpredictable requests and
+challenges. In other words the kernel needed to be more flexible in order to
+support both new requests and old features. These old features were probably a
+result of the old engine.
+*** Tool Integration
+This is related to the challenges of the tool integration with Cadence's work
+flow. Not only was their unexpected input in the integration testing, but the
+engine had to be tuned to work well with the rest of Cadence's workflow tools.
+
+bibliography:references.bib
