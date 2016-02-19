@@ -1,0 +1,36 @@
+#+TITLE: Seminar Report 7
+#+AUTHOR: Martin Fracker
+#+OPTIONS: toc:nil num:nil
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+* Summary
+This seminar was about advice one should follow after accepting a job
+offer. Once you have a job, there are several important things to keep in mind
+such as generation gaps, your career plan, keeping realistic expectations, and
+making oneself valuable. In the workforce, there are often interactions between
+people from several different generations. That is to say one's supervisor is
+often from the previous generation. Thus, any interactions however many levels
+deep is likely to span that many generations. This is important to keep in mind
+because value systems and work ethics can be drastically different between
+generations. Next, one should always have a career plan. Understand what your
+goals are and ways you would enjoy applying your major at the company. This will
+not only allow you to open future opportunities for yourself, such as
+promotions, but it will also help you to determine if you are enjoying what you
+are doing at the company. This ties in with having realistic expectations. You
+will never get the job that meets your every expectation. It is important to
+keep expectations realistic with respect to your paycheck, raises, promotions,
+and responsibilities. Finally, in order to make one's own job security, one
+should be doing things proactively to make oneself more valuable, such as being
+highly productive and low maintenance. Ultimately, this advice is not only
+important for one's first job but also for every job thereafter.
+* Thoughts
+I was particularly happy to hear Dr. McMahon tell me there is no such thing as a
+dream job primarily because I have always wondered how I can get a job that
+meets my every expectation. This lecture told me this is not the case, but it
+seems I can still use my idea of a dream job as a kind of goal I am always
+reaching for with my actions. I think one of the themes in the lecture is to
+balance goals with realistic expectations. While my dream job may not be out
+there, I should still work hard and strive to get there. My dad is a good
+example of someone who lives by the quote, "It's not what you do between 8 and
+5, but what you do between 5 and 8 ..." My dad has not only gone above and
+beyond his boss's expectations at IBM, but he has also been able to adapt to
+entirely new responsibilities.
