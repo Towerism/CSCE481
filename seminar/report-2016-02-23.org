@@ -1,0 +1,36 @@
+#+TITLE: Seminar Report 9
+#+AUTHOR: Martin Fracker
+#+OPTIONS: toc:nil num:nil
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+* Summary
+This seminar was a question and answer session with a graduate student
+panel. Things to consider before going into graduate school are what your
+motivation is, how you will fund the degree, and what effort may be required of
+you. Perhaps your major is not computer science, but you realize that computer
+science can help you solve problems in your field. Or maybe perhaps you really
+want to do research in computer science, and you find the feeling of being on
+the bleeding edge of the field exciting. Many PhD students want to go into the
+R&D field to help people in the future. Their eyes are on the future. Some
+students want to be a tenure-track professor. Other students simply enjoy being
+in academia, and pursuing the next degree is the way to do that. On this same
+note, those students who remain in academia keep their options open. They can go
+into teaching, industrial research, etc. Most of them find graduate school very
+rewarding. One of the members of the panel, even though he did not formally
+study computer science as an undergraduate, has had a background in computer
+science from high school and extra curricular activities. In academia he is
+taking some prerequisite courses that interest him. As far as financial issues,
+you can apply for a fellowship, your adviser can raise the money for you, or
+perhaps your current employer will agree to fund your degree. Finally, for many
+graduate students, it is difficult to make progress while living your life, but
+it may also be an issue of money. The difficulty also has a lot to do with being
+on the bleeding edge of the field: often you are not sure if you are going in
+the right direction.
+* Thoughts
+Often, after a BS program, students will go straight into the field because they
+are eager to get paid. However, going to into a MS and possibly a PhD program,
+could yield a higher paying career in the long run. In other words, your income
+will be delayed, but the increase in your pay throughout your career many will
+find wholly worth it. One advice someone on the panel gave, however, was to not
+further your education solely for the money. Indeed I think it is very important
+to be interested in what you are learning and what you might want to do your
+research in.
