@@ -1,0 +1,34 @@
+#+TITLE: Seminar Report 10
+#+AUTHOR: Martin Fracker
+#+OPTIONS: toc:nil num:nil
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+* Summary
+This seminar was about what software consultants do. Software consultants target
+specific companies and provide technology and professional advice and support in
+order to solve problems for companies. Who are software consultants? Software
+consultants are typically experienced technical people. Software consultants are
+not only technically savvy, but they also have excellent communication skills
+with a particularly keen ability to motivate others. A software consultant is
+often someone who enters into an organization at a relatively high position and
+takes on projects for other companies in order to help those companies solve
+problems. Typically only companies that can pay the fees of a consulting company
+are targeted. Target companies are usually at least two billion dollar
+companies. One reason companies seek out consultants may be because they need
+someone who has knowledge of industry standards. The challenge of a consultant
+is getting the requirements from a client and implementing it the way the client
+really wants it.
+* Thoughts
+Consulting is an interesting job. Often times, a consultant
+will find him or herself doing vastly different things from project to
+project. I found it interesting how many parallels there were between a
+consultant and a doctor. Much like doctors, consultants go in, ask the client
+what is wrong, and very carefully figure out what is actually wrong in order to
+plan out and implement the proper solution.
+
+Pariveda, an example of a software consulting company, is really interesting
+because of how transparent they are. Consultants who work for Pariveda are
+working together in almost the truest sense of the word. They don't compete on
+salary, because consultants on the same level get paid exactly the same. This
+results in a decrease in office politics compared to other consulting companies
+such as Frog Slayer. In addition to a decrease in office politics, Pariveda
+publishes the salary levels of consultants, which I find excellent.
