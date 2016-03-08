@@ -1,0 +1,30 @@
+#+TITLE: Seminar Report 11
+#+AUTHOR: Martin Fracker
+#+OPTIONS: toc:nil num:nil
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+
+* Summary
+This seminar, given by representatives of ExxonMobil, was about computational
+science and engineering in the oil and gas industry. The main purpose of this
+lecture was to delineate the technical side of the oil and gas industry and
+illustrate the difficulty of iterative development in the industry. First, it
+may seem that many people do not realize how technical the oil and gas industry
+can be. In fact a lot of technology goes into making the oil and gas industry
+successful from simulations to project management software. Finally, like all
+large corporations who maintain large software projects, developers at Exxon
+must find ways to parallelize their software build process due to the magnitude
+of their code bases and take advantage of a very high performance computing
+array of in-house servers in order to be able to rapidly iterate builds during
+active development when time and speed matter most.
+
+* Thoughts
+One of my take-aways from this lecture is how varied your job description can be
+over the course of your career. Some of the representatives who were here today
+from ExxonMobil were at the company for several years, some even more than a
+decade. Over the course of their time at Exxon, their roles at the company
+changed several times. One representative was at Exxon for 25 years and his
+experience spanned across eight different roles. Another was at the company for
+just under a decade, and his experience spanned across a smaller but still
+significant number of different roles. This really excites me, because I would
+like to jump into my career as a developer and then transition into perhaps a
+software engineer.
