@@ -1,0 +1,27 @@
+* Project Meta Info
+- Name: Rubyargs
+- URL: https://github.com/unclebob/rubyargs
+- Functionality: The whole project
+* Description
+- CLI argument parser
+- Allows the user to specify what types of args to expect
+  - Boolean arguments
+  - Numeric arguments
+  - String arguments
+  - Numeric list arguments
+- Allows the user to get the values passed in for each argument
+  - A boolean can be retrieved for each boolean argument
+  - Float for each numeric
+  - String for each string
+  - Array of floats for each numeric list
+* Literate programming flow
+- parsing
+  - parse
+  - parse_argument
+  - is_flag?
+  - set_argument_value
+  - get_argument_name
+- declaring
+  - add_declarator
+  - declare_arguments
+  - Marshalers
