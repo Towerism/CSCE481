@@ -1,20 +1,21 @@
 #+TITLE: Long Assignment 2
 #+AUTHOR: Martin Fracker
 #+LATEX_HEADER: \usepackage[margin=1in]{geometry}
-#+LATEX_HEADER: \bibliographystyle{plain}
+#+LATEX_HEADER: \usepackage{hyperref}
+#+LATEX_HEADER: \bibliographystyle{alphadin}
 #+LATEX_HEADER: \input{titlepage}
 
 * Ruby Args
-Ruby Args cite:argsgit is a program written by Bob Martin to complement the java
-version of the same program which he used in his book /Clean Code: A Handbook of
-Agile Software Craftsmanship/ cite:cleancode.
+Ruby Args cite:argsgit is a small library written by Bob Martin to complement
+the java version of the same program which he used in his book /Clean Code: A
+Handbook of Agile Software Craftsmanship/ cite:cleancode.
 ** Project Structure
 The Ruby Args project consists of the three source files: =args_spec.rb=,
 =Main.rb=, and =args.rb=.
 *** =args_spec.rb=
 Bob Martin describes the business logic of Ruby Args in this file. Bob Martin
 wrote the java version of this program using test-driven development
-cite:cleancode, so this file suggests that he would have used test-driven
+cite:cleancode, and this file suggests that he would have used test-driven
 development for this project as well.
 *** =Main.rb=
 This file is mostly superfluous because =args_spec.rb= already does a fine job
@@ -25,6 +26,41 @@ arguments and print the parsed arguments for the user.
 This file contains the entire argument parsing library as written by Bob
 Martin. It contains a single =Args= class which contains the nested classes:
 =Parser=, =BoolMarshaler=, =NumberMarshaler=, and =NumberListMarshaler=. The
-rest of this document will focus on =args.rb=.
+rest of this document will focus mostly on =args.rb=.
+
+** Library Explanation
+Ruby Args parses CLI arguments passed in at invocation given a specification of
+expected arguments and argument types.
+*** Usage
+An instance of the =Parser= class is returned by the static method
+=Args.expect=. =Args.expect= should be called with a proc block declaring the
+types and names of the expected arguments.
+#+BEGIN_SRC ruby
+  parser = Args.expect do
+    boolean "v,s"
+    number "t"
+    string "f"
+  end
+#+END_SRC
+
+Given an instance of the =Parser= class, the user can simply call the =parse=
+method in order to parse the CLI arguments. Then the user can access the value
+of each argument using the =[]= operator and the argument's name as a key.
+#+BEGIN_SRC ruby
+  parser.parse(ARGV)
+
+  verbose = parser["v"]
+  shorthand = parser["s"]
+  times = parser["t"]
+  file = parser["f"]
+#+END_SRC
+
+If, for whatever reason, there was an unexpected argument, then the method
+=valid?= will return false after having called =parse=.
+#+BEGIN_SRC ruby
+  if not parser.valid?
+    puts = "Usage: <Program> [v] [s] [t <times>] [f <file>]"
+  end
+#+END_SRC
 
 bibliography:references.bib
