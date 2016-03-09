@@ -1,4 +1,0 @@
-#+TITLE: Long Assignment 2
-#+AUTHOR: Martin Fracker
-#+OPTIONS: toc:nil num:nil
-#+LATEX_HEADER: \usepackage[margin=1in]{geometry}

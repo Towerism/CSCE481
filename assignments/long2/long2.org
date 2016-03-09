@@ -1,0 +1,13 @@
+#+TITLE: Long Assignment 2
+#+AUTHOR: Martin Fracker
+#+OPTIONS: toc:nil num:nil
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+LATEX_HEADER: \bibliographystyle{plain}
+#+LATEX_HEADER: \input{titlepage}
+
+* Ruby Args
+Ruby Args is a program written by Bob Martin to complement the java version of
+the same program which he used in his book /Clean Code: A Handbook of Agile
+Software Craftsmanship/ cite:cleancode.
+
+bibliography:references.bib
