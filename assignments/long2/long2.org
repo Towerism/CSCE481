@@ -1,13 +1,30 @@
 #+TITLE: Long Assignment 2
 #+AUTHOR: Martin Fracker
-#+OPTIONS: toc:nil num:nil
 #+LATEX_HEADER: \usepackage[margin=1in]{geometry}
 #+LATEX_HEADER: \bibliographystyle{plain}
 #+LATEX_HEADER: \input{titlepage}
 
 * Ruby Args
-Ruby Args is a program written by Bob Martin to complement the java version of
-the same program which he used in his book /Clean Code: A Handbook of Agile
-Software Craftsmanship/ cite:cleancode.
+Ruby Args cite:argsgit is a program written by Bob Martin to complement the java
+version of the same program which he used in his book /Clean Code: A Handbook of
+Agile Software Craftsmanship/ cite:cleancode.
+** Project Structure
+The Ruby Args project consists of the three source files: =args_spec.rb=,
+=Main.rb=, and =args.rb=.
+*** =args_spec.rb=
+Bob Martin describes the business logic of Ruby Args in this file. Bob Martin
+wrote the java version of this program using test-driven development
+cite:cleancode, so this file suggests that he would have used test-driven
+development for this project as well.
+*** =Main.rb=
+This file is mostly superfluous because =args_spec.rb= already does a fine job
+at explaining how the library works and how to use it. Nonetheless, this file
+demonstrates a main function that can parse CLI (command line interface)
+arguments and print the parsed arguments for the user.
+*** =args.rb=
+This file contains the entire argument parsing library as written by Bob
+Martin. It contains a single =Args= class which contains the nested classes:
+=Parser=, =BoolMarshaler=, =NumberMarshaler=, and =NumberListMarshaler=. The
+rest of this document will focus on =args.rb=.
 
 bibliography:references.bib
