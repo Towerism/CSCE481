@@ -7,7 +7,7 @@
 
 * Ruby Args
 Ruby Args cite:argsgit is a small library written by Bob Martin to complement
-the java version of the same program which he used in his book /Clean Code: A
+the java version of the same library which he used in his book /Clean Code: A
 Handbook of Agile Software Craftsmanship/ cite:cleancode.
 ** Project Structure
 The Ruby Args project consists of the three source files: =args_spec.rb=,
@@ -62,5 +62,33 @@ If, for whatever reason, there was an unexpected argument, then the method
     puts = "Usage: <Program> [v] [s] [t <times>] [f <file>]"
   end
 #+END_SRC
+
+*** I/O Specification
+As previously said, Bob Martin most likely wrote this library using test-driven
+development. This section will describe the business logic of the library in
+more detail.
+
+**** =Args#expect=
+The user calls this function to specify what arguments the parser
+should expect.
+***** Input
+The user should pass in a proc block containing several statements each
+declaring several argument names which will be of one particular type (boolean,
+numeric, string, or numeric list). An example of such a statement is 
+#+BEGIN_SRC ruby
+  ~boolean "v,s"~
+#+END_SRC
+which would declare two arguments, =w= and =s=, each of type boolean.
+***** Output
+A parser expecting the declared arguments will be returned.
+
+**** =Parser#parse=
+Parses a string according to the expected arguments.
+***** Input
+The user should pass in a string containing the arguments passed in at program
+invocation. That is each argument name should start with a dash. The values
+associated with each argument should follow the argument's name plus a space. 
+
+
 
 bibliography:references.bib
