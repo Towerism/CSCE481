@@ -25,17 +25,17 @@ industry. To offset a lack of documentation, Improving elects to work using
 Agile methodologies which allows them to work closely with the customer and to
 be able to react quickly to ever-changing specifications.
 * Thoughts
-I have never been a fan of writing documentation myself. Sure I enjoy having the
+I have never been a fan of writing documentation myself. I enjoy having the
 opportunity to read documentation someone else wrote, but writing one's own
 documentation often involves the maintenance of said documentation otherwise one
 defeats the purpose of writing documentation in the first place as the software
 described therein is no doubt going to change significantly in the future. In
-agile methodologies, in my case I prefer TDD, working code is prioritized over
+agile methodologies (in my case I prefer TDD) working code is prioritized over
 documentation.
 
 How then do you document code to be checked in? I would argue that the tests
 everyone should be checking in with their code would act as the documentation of
 the code that the tests exercise. Tests have an advantage over traditional
-documentation. That is tests tend to be tightly coupled to the code it tests,
+documentation. That is tests tend to be tightly coupled to the code they test,
 much more so than traditional documentation. In other words, if the code changes
 in a way that visibly modifies behavior, then so will the tests.
