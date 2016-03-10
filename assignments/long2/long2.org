@@ -33,7 +33,7 @@ Ruby Args parses CLI arguments passed in at invocation given a specification of
 expected arguments and argument types.
 *** Usage
 An instance of the =Parser= class is returned by the static method
-=Args.expect=. =Args.expect= should be called with a proc block declaring the
+=Args.expect=. =Args.expect= should be called with a block declaring the
 types and names of the expected arguments.
 #+BEGIN_SRC ruby
   parser = Args.expect do
@@ -72,15 +72,17 @@ more detail.
 The user calls this function to specify what arguments the parser
 should expect.
 ***** Input
-The user should pass in a proc block containing several statements each
-declaring several argument names which will be of one particular type (boolean,
-numeric, string, or numeric list). An example of such a statement is 
+The user should pass in a block containing several statements each
+declaring several comma-separated argument names which will be of one particular
+type (=boolean=, =number=, =string=, or =number_list=). An example of such a
+statement is
 #+BEGIN_SRC ruby
   ~boolean "v,s"~
 #+END_SRC
 which would declare two arguments, =w= and =s=, each of type boolean.
 ***** Output
-A parser expecting the declared arguments will be returned.
+A parser expecting the declared arguments will be returned. Note that, if an
+empty block was passed in, a parser expecting zero arguments will be returned.
 
 **** =Parser#parse=
 Parses a string according to the expected arguments.
