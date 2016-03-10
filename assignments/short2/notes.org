@@ -1,0 +1,137 @@
+* Technology Considerations in Computer Architecture
+** Lecture Meta-information
+- Lecturer: Jean-Luc Gaudiot
+  - University of California, Irvine
+- Date: March 9, 2016
+- PASCAL: PArallel Systems and Computer Architecture Lab
+** Main idea
+- Acceleration techniques are expensive
+  - power
+  - energy
+  - chip resources (i.e. real estate)
+  - When does an expensive technique become inexpensive? Is there a crossover
+    point in technology? (e.g., IBM 360/91 first pipelining machine)
+    - The IBM 360 (very expensive) could only reach about 70% speed due to
+      pipelining
+    - Nowadays there is not a machine in our pockets that is not pipelined.
+** Cases
+*** Technique 1: Partial reconfiguration
+- Question: Can partial reconfiguration techniques be used to reduce FPGA energy
+  consumption
+*** Technique 2: Prefetching
+- Prefetching has been proven to be an effective performance improvement technique
+- Question:
+** Introduction
+*** Reconfigurable systems (FPGA)
+- Advantage: ability to reconfigure hardware at run-time
+*** Chip Area Time SHaring
+- Multiple hw modules
+- single hw module plus reconfiguration
+- e.g., media codecs on mobile systems
+*** Key question: can partial reconfig be used to reduce fpga energy consumption
+- ability to accelerate
+- reconfig
+- reconfig
+*** Questions to be answered
+- Does accel hw also lead to energy reduction as a result of the execution
+  time reduction
+- Under what conditions will partial reconfig reduce energy consumption in
+  reconfig systems
+- Under what conditions will partial reconfig and energy management techniques
+  outperform other techniques such as clock gating
+- can we find solutions to minimize the config energy overhead
+- can we develop model to predict energy cost
+** Power management
+- two main sources of power consumption
+  - static power: leakage of current
+  - dynamic power: devices switch
+- static power consumption
+  - depends on values of configuration bits
+  - depends on polarity of io
+- dynamic power consumption
+  - clock dist: up to 22% of all power consumption
+- existing techniques
+  - clock gating
+  - clock scaling
+  - supply gating
+- focus on energy reduce techniques to be applied to existing FPGAs
+** Fast Configuration
+- Run-time partial reconfiguration (PR)
+  - reconfig certain portions at run-time without influencing other parts
+  - allow optimized hardware implementation to accelerate computation
+  - allow efficient use of chip area
+  - allow leakage and clock distribution power saving
+  - reconfig speed and energy consumption is critical
+- DMA to directly transfer configuration data to ICAP (Internal Config Access
+  Port)
+  - 82 MBytes/s ICAP throughput using this approach
+  - 295 Mbytes/s on the Virtex-4 chip
+- Ideal ICAP throughput is 400Mbytes/s
+  - Propose a DMA engine design to approach this ideal throughput
+  - Study how the configuration throughput affects the energy reduction
+    potential of partial reconfiguration techniques.
+** FPGA Architectgure
+- piece of digital logic that you can configure
+- 2layer architecture
+  - first layer: building blocks
+    - logic blocks, block RAMs, IO blocks, wiring resources
+- Second layer: configuration logics
+  - Configuration memory, configuration control logics
+** eMIPS: Extensible MIPS
+- Dynamically extensible architecture
+- Reconfigurable hardware extensions
+- eMIPS system ported on a Xilinx Virtex-4 chip
+*** Extensions
+- Accelerate applications
+- Implement plug and play peripherals
+- monitor and model check of apps
+- Debug app software
+*** study of app mmldiv64
+- 64 bit operation
+- 2X speedup
+** Can Acceleration Hardware Lead to Energy Reduction
+- When the computation is finished, turn off the hardware
+- Need to consider the cost of partial reconfiguration
+** Can Run-time PR Outperform Clock Gating
+- yes?
+** Observation
+- If the partial reconfiguration technique is to reduce energy consumption, the
+  key is the configuration data transfer throughput
+- Something
+** Fast Reconfiguration Engine
+- Original eMIPS Design: the ICAP transfer throughput is only 318Kbytes/s
+- DMA Engine + FIFO + Burst Mode
+*** New Desgin
+- Master Slave DMA
+- FIFO between two DMA engines
+- Burst read-mode
+** Clockgating
+- An effective fine-grain technique
+  - PR should be used for long periods of inactivity
+*** Observiations
+- If the ICAP throughput is 318 Kbtes/s, then it is not worthwhile to use PR
+  bebause it consumes more energy that just leaving the acclerator on the whole
+  time
+- As the non-extension workload increases, the  energy reduction brought by both
+  PR and CG techniques increases
+- He moves too fucking fast
+* Data Prefetching
+- Heavy energy consumer
+  - more memory accesses
+  - resource contention
+- Embedded mobile systems
+  - limited energy budget
+  - high performance requirements
+** Possible prefetchers
+- Have a large sample of prefetchers and determine which one works best
+- Test the prefetching techniques using benchmarks
+- Delivers a 5% performance on average
+- Energy consumption increases for most prefetchers
+- Moving from 90nm to 32nm technology, some prefetchers would actually be more
+  energy efficnet
+** Discussion
+- Prefecthers reduce program execution time
+- Static power mem consumptions constant
+- Static energy thus decreases
+- Prefetchers increse mem activity, thus causing additional dynamic energy overhead
+- There is more room for energy savings with the 32nm technology

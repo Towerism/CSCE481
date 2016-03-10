@@ -1,0 +1,47 @@
+#+TITLE: Short Assignment 2
+#+AUTHOR: Martin Fracker
+#+OPTIONS: toc:nil num:nil
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+LATEX_HEADER: \usepackage{hyperref}
+#+LATEX_HEADER: \input{titlepage}
+#+LATEX_HEADER: \bibliographystyle{alphadin}
+
+
+\newpage
+* Introduction
+The seminar was given by Jean-Luc Gaudiot cite:website, an Electrical
+Engineering and Computer Science Department professor at University of
+California. He began the lecture by explaining "cross-over" technologies. A
+technology can be considered to be "cross-over" if it was the first of its kind,
+and it later became common and significantly improved over time. For example,
+the IBM 360/91, the first pipe-lining machine, was very expensive in its time,
+and you could not get more than about 70% speed. This was due to data dependency
+and contention. Nowadays you would be hard-pressed to find a device today that
+is not pipe-lined. This demonstrates a "cross-over" technology that at the
+beginning had a rough start, but significantly improved over the years and
+eventually became a commodity. This lecture covers the technology considerations
+in Computer Architecture, the power management and configuration speed of
+field-programmable gate arrays (FPGAs) in particular, which are pieces of
+digital logic that you can reconfigure at run-time.
+* Motivation
+Gaudiot's goal is to reduce power consumption and increase speed and efficiency
+of FPGA's which are costly to reconfigure. Thus, the motivation for Gaudiot's
+research is two fold: is partial reconfiguration useful in reducing energy
+consumption, and can pre-fetching be used to improve speed and efficiency?
+* New Contribution
+Gaudiot found, in regards to partial reconfiguration, that it is only worthwhile
+to use techniques such as partial reconfiguration and clock-gating when the
+throughput to the internal configuration access port is quite high. Otherwise,
+if the throughput is not that high, then it is more energy efficient to just
+leave the accelerator on.
+
+In regards to pre-fetching, Gaudiot found that pre-fetching can in fact improve
+speed and efficiency. In his experiments, Gaudiot expected to see speed
+improvements, but he may not have expected to see improvements in energy
+efficiency. While higher power consumption was observed for some technology
+using pre-fetching, Gaudiot concluded that power consumption would actually be
+reduced for technologies of 32nm or lower. Gaudiot's energy savings model
+indicated that concerns of power consumption should be directed away from
+dynamic power consumption and more toward static power consumption.
+
+bibliography:references.bib
