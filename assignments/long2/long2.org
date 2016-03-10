@@ -72,12 +72,15 @@ more detail.
 The user calls this function to specify what arguments the parser
 should expect.
 ***** Input
-The user should pass in a block containing several statements each
-declaring several comma-separated argument names which will be of one particular
-type (=boolean=, =number=, =string=, or =number_list=). An example of such a
-statement is
+The user should pass in a block containing several statements each declaring
+several comma-separated argument names which will be of one particular type
+(=boolean=, =number=, =string=, or =number_list=). Examples of such statements
+are
 #+BEGIN_SRC ruby
-  ~boolean "v,s"~
+  boolean "v,s"
+  number "n,p"
+  string "d"
+  number_list "a"
 #+END_SRC
 which would declare two arguments, =w= and =s=, each of type boolean.
 ***** Output
@@ -89,8 +92,19 @@ Parses a string according to the expected arguments.
 ***** Input
 The user should pass in a string containing the arguments passed in at program
 invocation. That is each argument name should start with a dash. The values
-associated with each argument should follow the argument's name plus a space. 
+associated with each argument should follow the argument's name plus a
+space.
 
+Note that boolean arguments act as switches and should not carry with them any
+value, and the value of a number list argument should be a comma-separated list
+of numbers (no spaces). It is also worth noting that string arguments do not
+need to be surrounded by quotes unless the string contains spaces.
 
+Examples of valid arguments assuming that =b= is a boolean, =n= is a number,
+=l= is a number list, and =s= is a string, are
+#+BEGIN_SRC
+  -b -n 50 -l 2,4,6 -s text
+  -b -n 50 -l 2 -s "text"
+#+END_SRC
 
 bibliography:references.bib
