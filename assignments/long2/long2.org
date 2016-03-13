@@ -7,9 +7,9 @@
 
 * Introduction
 Ruby Args cite:argsgit is a small library written by Robert Martin to complement
-the java version of the same library which he used as case study of test-driven
-development in his book /Clean Code: A Handbook of Agile Software Craftsmanship/
-cite:cleancode.
+the java version of the same library which he used as a case study of
+test-driven development in his book /Clean Code: A Handbook of Agile Software
+Craftsmanship/ cite:cleancode.
 * Project Structure
 The Ruby Args project consists of two main source files: =args_spec.rb=, and
 =args.rb=. There is another file, =Main.rb=, which serves as a demonstration of
@@ -26,10 +26,9 @@ expected arguments and argument types. Note that for the remainder of this
 document, =Class.method= will refer to a static method, and =Class#method= will
 refer to an instance method.
 ** Usage label:usage
-An instance of the =Parser= class is returned by the static method
-=Args.expect=. =Args.expect= should be called with a block declaring the types
-and names of the expected arguments. See ref:ioexpect for a more in-depth
-explanation of the expected input for =Args.expect=.
+The user should instantiate a parser by declaring the expected arguments using
+=Args.expect=. See ref:ioexpect for a more in-depth explanation of the expected
+input for =Args.expect=.
 #+BEGIN_SRC ruby
   parser = Args.expect do
     string "f"
@@ -37,17 +36,16 @@ explanation of the expected input for =Args.expect=.
 #+END_SRC
 
 Given an instance of the =Parser= class, the user can simply call the
-=Parser#parse= method in order to parse the CLI arguments. Then the user can
-access the value of each argument using the =Parser#[]= operator and the argument's
-name as a key.
+=Parser#parse= method in order to parse the CLI arguments. Then, the user can
+access the value of each argument using the =Parser#[]= operator.
 #+BEGIN_SRC ruby
   parser.parse(ARGV)
   file = parser["f"]
 #+END_SRC
 
-If, for whatever reason, there was an unexpected argument, then the method
-=valid?= will return false after having called =parse=. See ref:ioparse for an
-in-depth explanation of the input and output of =Parser#parse=.
+After parsing, the user can use =Parser#valid?= to check if parsing was
+successful. See ref:ioparse for a more in-depth explanation of the input and output
+of =Parser#parse=.
 #+BEGIN_SRC ruby
   if not parser.valid?
     puts = "Usage: <Program> [f <file>]"
@@ -58,12 +56,13 @@ This section will describe the business logic of the library in
 more detail.
 *** =Args#expect= label:ioexpect
 The user calls this method to specify what arguments the parser should
-expect. See ref:usage for an example of argument declarations being passed to
+expect. See ref:usage for an example of an argument declaration being passed to
 =Args#expect=.
 **** Input
-The user should pass in a block containing several statements each declaring
-several comma-separated argument names which will be of one particular type:
-=boolean=, =number=, =string=, or =number_list=. An example of such a block is
+The user should pass in a block containing any number of statements each
+declaring any number of comma-separated argument names which will be of one
+particular type: =boolean=, =number=, =string=, or =number_list=. An example of
+such a block is
 #+BEGIN_SRC ruby
   do
     boolean "v,s"
@@ -73,8 +72,7 @@ several comma-separated argument names which will be of one particular type:
   end
 #+END_SRC
 which, when passed to to =Args#expect=, would declare the arguments =v=, =s=,
-=n=, =p=, =d=, and =a=, each with a type corresponding to the method calls
-above.
+=n=, =p=, =d=, and =a=, each with a type corresponding to its declaration.
 **** Output
 A parser expecting the declared arguments will be returned. Note that, if an
 empty block was passed in, a parser expecting zero arguments will be returned.
@@ -83,17 +81,16 @@ The user calls this method to parse an array of CLI arguments according to the
 expected arguments. See ref:usage for an example of how to declare the expected
 arguments.
 **** Input
-The user should pass in an array containing the arguments, possibly passed in at
-program invocation. Each argument name should start with a dash, and the
-values associated with each argument should follow the argument's name in the
-array.
+The user should pass in an array containing the CLI arguments. Each argument
+name should start with a dash, and the values associated with each argument
+should follow the argument's name in the array.
 
 Note that boolean arguments act as switches and should not carry with them any
 value, and the value of a number list argument should be a comma-separated list
-of numbers. If spaces are preferred after each comma, then the whole list should
-be surrounded by quotes.
+of numbers. If spaces are preferred after each comma, then the whole number list
+should be surrounded by quotes.
 
-Examples of valid input, assuming that =b= is a boolean, =n= is a number,
+Examples of valid CLI input, assuming that =b= is a boolean, =n= is a number,
 =l= is a number list, and =s= is a string, are
 #+BEGIN_SRC
   -b -n 50 -l 2,4,6 -s text
@@ -101,10 +98,10 @@ Examples of valid input, assuming that =b= is a boolean, =n= is a number,
   -b -n 5.0 -l 2.2 -s "more text"
 #+END_SRC
 **** Output
-There is no direct output for this method. Instead, after the user has called
-=Parse#parse=, the values of the arguments can be accessed using the =Parser#[]=
-operator. For example, below can be seen the results after calling
-=Parser#parse= on the first argument list seen above:
+There is no direct output for this method. Instead, the values of the arguments
+can be accessed using the =Parser#[]= operator. For example, below can be seen
+the results after calling =Parser#parse= on the first set line of arguments seen
+above:
 #+BEGIN_SRC ruby
   mybool = parser["b"]    # => true
   mynum = parser["n"]     # => 50
@@ -114,12 +111,11 @@ operator. For example, below can be seen the results after calling
 
 For arguments which are expected but omitted in the parsed string, the =Parser=
 assigns to them default values. See Table ref:tab-default-arg-val for the
-default values.
-
-For arguments which are unexpected but included in the parsed string,
+default values. For arguments which are unexpected but included in the parsed string,
 =Parser#valid?= will return false. Otherwise, =Parser#valid?= will return true.
 
 #+CAPTION: Default argument values
+#+ATTR_LATEX: :placement [h]
 #+TBLNAME: tab-default-arg-val
 | Type        | Default |
 |-------------+---------|
@@ -172,10 +168,9 @@ Parsing begins with =Parser#parse= which parses an argument list until it is emp
   end
 #+END_SRC
 
-Parsing an argument entails grabbing the argument name and, after ensuring the
-argument name is valid, appropriately setting the argument's value. The name
-is valid if and only if its prefix is a '-'. Then, the argument's name is the
-flag excluding the '-'.
+Parsing an argument entails ensuring the argument is valid and appropriately
+setting the argument's value. The name is valid if and only if its prefix is a
+'-'. Then, the name used in the hash table is the argument excluding the '-'.
 #+BEGIN_SRC ruby
    def parse_argument(arguments)
      argument = arguments.shift
@@ -224,7 +219,7 @@ a float.
   end
 #+END_SRC
 
-=NumberListMarshaler= pops the next string and splits the string into an array of
+=NumberListMarshaler= pops the next string and splits the it into an array of
 smaller strings using ',' as a separator. Then, each of the smaller strings are
 converted to a float and a new array is constructed from those floats in the
 order they appeared in the originally popped string.
@@ -259,8 +254,9 @@ argument (e.g. "ruby Main.rb -n", if n is a numeric argument), either a ruby
 run-time error would occur, or the library would silently fail, using the
 argument's default value after essentially discarding the argument after it,
 depending on whether the numeric argument was the last argument given or
-not. The former can be fixed with a rescue block, but the latter is very bad. As
-most users expect CLI programs to never silently fail or expose implementation
-details, users of this library should be wary.
+not. The former can be fixed by wrapping the =Parser#parse= call in a rescue
+block, but the latter is very bad. As most users expect CLI programs to never
+silently fail or expose implementation details, users of this library should be
+wary.
 
 bibliography:references.bib
