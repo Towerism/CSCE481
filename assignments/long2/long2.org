@@ -13,18 +13,19 @@ Craftsmanship/ cite:cleancode.
 * Project Structure
 The Ruby Args project consists of two main source files: =args_spec.rb=, and
 =args.rb=. There is another file, =Main.rb=, which serves as a demonstration of
-the usage of Ruby Args, but reading =args_spec.rb= should be sufficient enough
-to get a crisp understanding of how to use the library. 
+the usage of Ruby Args, but reading =args_spec.rb=, which describes the business
+logic of Ruby Args, should be sufficient enough to get a crisp understanding of
+how to use the library.
 
 The file =args.rb= is the primary file in the project as it contains the logic
 for the entire library. It contains a single =Args= class which contains the
 nested classes: =Parser=, =BoolMarshaler=, =NumberMarshaler=, =StringMarshaler=,
 and =NumberListMarshaler=.
 * Library Explanation
-Ruby Args parses CLI arguments passed in at invocation given a specification of
-expected arguments and argument types. Note that for the remainder of this
-document, =Class.method= will refer to a static method, and =Class#method= will
-refer to an instance method.
+Ruby Args parses command line interface (CLI) arguments passed in at invocation
+given a specification of expected arguments and argument types. Note that for
+the remainder of this document, =Class.method= will refer to a static method,
+and =Class#method= will refer to an instance method.
 ** Usage label:usage
 The user should instantiate a parser by declaring the expected arguments using
 =Args.expect=. See ref:ioexpect for a more in-depth explanation of the expected
