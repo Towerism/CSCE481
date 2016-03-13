@@ -12,19 +12,14 @@ development in his book /Clean Code: A Handbook of Agile Software Craftsmanship/
 cite:cleancode.
 * Project Structure
 The Ruby Args project consists of two main source files: =args_spec.rb=, and
-=args.rb=. There is another file, =Main.rb=, which serves as a demonstration,
-but reading =args_spec.rb= should be sufficient enough to get a crisp
-understanding of how to use the library.
-** =args_spec.rb=
-Robert Martin describes the business logic of Ruby Args in this file. Robert Martin
-wrote the java version of this program using test-driven development
-cite:cleancode, and this file suggests that he would have used test-driven
-development for this project as well.
-** =args.rb=
-This file contains the entire argument parsing library as written by Robert
-Martin. It contains a single =Args= class which contains the nested classes:
-=Parser=, =BoolMarshaler=, =NumberMarshaler=, =StringMarshaler=, and
-=NumberListMarshaler=.
+=args.rb=. There is another file, =Main.rb=, which serves as a demonstration of
+the usage of Ruby Args, but reading =args_spec.rb= should be sufficient enough
+to get a crisp understanding of how to use the library. 
+
+The file =args.rb= is the primary file in the project as it contains the logic
+for the entire library. It contains a single =Args= class which contains the
+nested classes: =Parser=, =BoolMarshaler=, =NumberMarshaler=, =StringMarshaler=,
+and =NumberListMarshaler=.
 * Library Explanation
 Ruby Args parses CLI arguments passed in at invocation given a specification of
 expected arguments and argument types. Note that for the remainder of this
@@ -37,8 +32,6 @@ and names of the expected arguments. See ref:ioexpect for a more in-depth
 explanation of the expected input for =Args.expect=.
 #+BEGIN_SRC ruby
   parser = Args.expect do
-    boolean "v,s"
-    number "t"
     string "f"
   end
 #+END_SRC
@@ -49,10 +42,6 @@ access the value of each argument using the =Parser#[]= operator and the argumen
 name as a key.
 #+BEGIN_SRC ruby
   parser.parse(ARGV)
-
-  verbose = parser["v"]
-  shorthand = parser["s"]
-  times = parser["t"]
   file = parser["f"]
 #+END_SRC
 
@@ -61,7 +50,7 @@ If, for whatever reason, there was an unexpected argument, then the method
 in-depth explanation of the input and output of =Parser#parse=.
 #+BEGIN_SRC ruby
   if not parser.valid?
-    puts = "Usage: <Program> [v] [s] [t <times>] [f <file>]"
+    puts = "Usage: <Program> [f <file>]"
   end
 #+END_SRC
 ** I/O Specification 
@@ -135,8 +124,143 @@ For arguments which are unexpected but included in the parsed string,
 | Type        | Default |
 |-------------+---------|
 | Boolean     | =false= |
-| Number      | =0=   |
+| Number      | =0=     |
 | Number List | =[]=    |
 | String      | ""      |
+
+** Implementation Details
+*** Argument Declaration
+Infrastructure for argument declaration revolves around the marshaler classes,
+which facilitate the parsing of argument values, and the
+=Parser#declare_arguments= method, which declares a list of a single type of
+argument. 
+
+=Parser#declare_arguments= splits the specified arguments into an
+array, and stores each argument in a hash table in the following fashion: use
+the argument as the key and a new instance of the appropriate marshaler as the
+value. At construction the marshaler sets its value to the appropriate
+default. See Table ref:tab-default-arg-val for those defaults.
+#+BEGIN_SRC ruby
+  def declare_arguments(args, marshaler)
+    args.split(",").each {|name| @args[name] = marshaler.new}
+  end
+#+END_SRC
+
+Each marshaler class, inside its own class declaration, uses the static method
+=Parser.add_declarator= to allow users of the =Parser= class to declare
+arguments of the type the marshaler is concerned with. For example, the
+=BooleanMarshaler= adds the functionality =Parser#boolean= to the =Parser=
+class, enabling the user of the =Parser= class to declare boolean arguments.
+#+BEGIN_SRC ruby
+  Parser.add_declarator("boolean", self.name)
+#+END_SRC
+
+=Parser.add_declarator= simply adds new functionality, which wraps the
+=Parser#declare_arguments= instance method, to the =Parser= class.
+#+BEGIN_SRC ruby
+  def self.add_declarator(name, marshaler)
+    method_text = "def #{name}(args) declare_arguments(args, #{marshaler}) end"
+    Parser.module_eval(method_text)
+  end
+#+END_SRC
+
+*** Parsing
+Parsing begins with =Parser#parse= which parses an argument list until it is empty.
+#+BEGIN_SRC ruby
+  def parse(arguments)
+    parse_argument(arguments) until arguments.empty?
+  end
+#+END_SRC
+
+Parsing an argument entails grabbing the argument name and, after ensuring the
+argument name is valid, appropriately setting the argument's value. The name
+is valid if and only if its prefix is a '-'. Then, the argument's name is the
+flag excluding the '-'.
+#+BEGIN_SRC ruby
+   def parse_argument(arguments)
+     argument = arguments.shift
+     if is_flag?(argument)
+       name = get_argument_name(argument)
+       set_argument_value(name, arguments)
+     end
+   end
+#+END_SRC
+
+Setting an argument's value entails ensuring that the name to which the value is
+associated exists as a key in the hash table and then calling =set_value= on
+the marshaler associated with that key. If the key is not in
+the hash table, the parser is said to be invalid.
+#+BEGIN_SRC ruby
+  def set_argument_value(name, arguments) 
+    if @args.has_key?(name)
+      @args[name].set_value(arguments)
+    else
+      @valid = false
+    end
+  end
+#+END_SRC
+
+At this point, the marshaler is responsible for parsing the value from the
+remaining arguments. =BoolMarshaler= does not need to parse the remaining
+arguments; it can simply set its value to =true=. 
+#+BEGIN_SRC ruby
+  def set_value(arguments)
+    @value = true
+  end
+#+END_SRC
+
+=NumberMarshaler= pops the next string in the arguments array and converts it to
+a float.
+#+BEGIN_SRC ruby
+  def set_value(arguments)
+    @value = arguments.shift.to_f
+  end
+#+END_SRC
+
+=StringMarshaler= pops the next string and copies it. 
+#+BEGIN_SRC ruby
+  def set_value(arguments)
+    @value = arguments.shift.dup
+  end
+#+END_SRC
+
+=NumberListMarshaler= pops the next string and splits the string into an array of
+smaller strings using ',' as a separator. Then, each of the smaller strings are
+converted to a float and a new array is constructed from those floats in the
+order they appeared in the originally popped string.
+#+BEGIN_SRC ruby
+  def set_value(arguments)
+    string_list = arguments.shift
+    string_list.split(",").each {|string|
+      @value << string.to_f
+    }
+  end
+#+END_SRC
+** Analysis
+*** Complexity
+=Args.expect= is linear in the number of arguments declared (i.e. adding up the
+arguments declared in each declarator call), assuming =Class.eval_module= can be
+executed in constant time. Each declarator calls =Parser#declare_arguments=
+which is clearly linear in the number of arguments declared.
+
+=Parser#parse= is linear in the total amount of digits to be parsed plus the
+length of the CLI arguments list, assuming each string-to-float conversion is
+linear in the number of digits to be parsed. =Parser#parse= is clearly a linear
+iteration over the CLI arguments list. Each iteration involves visiting an
+object with the type of one of the marshalers. The string and boolean marshalers
+can both parse their values in constant time, but parsing for the numeric
+marshalers involves one or more string-to-float conversions.
+
+*** Practicality
+Ruby Args seems to perform adequately. However, practical usage seems to be
+restricted to educational use, as, through somewhat trivial stress testing, it
+was observed that the case of when the user fails to pass a value to any numeric
+argument (e.g. "ruby Main.rb -n", if n is a numeric argument), either a ruby
+run-time error would occur, or the library would silently fail, using the
+argument's default value after essentially discarding the argument after it,
+depending on whether the numeric argument was the last argument given or
+not. The former can be fixed with a rescue block, but the latter is very bad. As
+most users expect CLI programs to never silently fail or expose implementation
+details, users of this library should be wary.
 
 bibliography:references.bib
