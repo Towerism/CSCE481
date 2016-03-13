@@ -124,30 +124,28 @@ default values. For arguments which are unexpected but included in the parsed st
 | String      | ""      |
 
 ** Implementation Details
-This description of the implementation details of the Ruby Args library will be
-given using literate programming.
 *** Overview
-The implementation of this library is separated into the three public routines,
-=Args.expect=, =Parser#parse=, and =Parser#[]=:
+The implementation of this library is separated primarily into the two public
+routines, =Args.expect=, =Parser#parse=:
 1) =Args.expect=
    1) Build a hash table of arguments each with a default value.
    2) Return a parser containing the resulting hash table.
 2) =Parser#parse=
    1) For each argument in the CLI argument list,
-      1) Ensure the argument is valid
-      2) Lookup the corresponding value in the hash table
-      3) Update the value with the value parsed from the argument list (the user
+      1) ensure the argument is valid,
+      2) lookup the corresponding value in the hash table, and
+      3) update the value with the value parsed from the argument list (the user
          can call =Parser#[]= to look up the parsed value later).
 *** Argument Declaration
 1) Argument declaration begins with =Args.expect= which wraps the sending of the
-   argument declarators, =boolean=, =number=, =string=, and =number_list=, to a
-   =Parser= instance.
-   1. Each marshaler class evaluates the static method =Parser.add_declarator=
+   argument declarator methods, =boolean=, =number=, =string=, and
+   =number_list=, to a =Parser= instance.
+   1) Each marshaler class evaluates the static method =Parser.add_declarator=
       to allow users of the =Parser= class to declare arguments of the type that
       marshaler is concerned with. For example, the =BooleanMarshaler= class
       adds the declarator =Parser#boolean= to the =Parser= class, enabling the
       user of the =Parser= class to declare boolean arguments.
-   2. Each of those functions wraps the =Parser#declare arguments= method, which
+   2) Each of the declarators wraps the =Parser#declare_arguments= method, which
       stores each declared argument in a hash table along with an instance of
       the appropriate marshaler class (=BooleanMarshaler= for =boolean=,
       =StringMarshaler= for =string=, etc.). At construction, the marshaler sets
@@ -158,10 +156,10 @@ The implementation of this library is separated into the three public routines,
    argument marshalers is returned.
 *** Parsing
 1) Parsing begins with =Parser#parse= which iterates through the CLI argument
-   list. For each argument in the list,
-   1) Its name is valid if and only if its prefix is a '-'. Then, the name used
+   list. For each argument in the list, we have the following:
+   1) Its name is valid if and only if its prefix is a '-', and the name used
       in the hash table is the argument excluding the '-'.
-   2) Setting an its value entails ensuring that the name to which the
+   2) Setting its value entails ensuring that the name to which the
       value is associated exists as a key in the hash table and then calling
       =set_value= on the marshaler associated with that key. If the key is not in
       the hash table, the parser is said to be invalid.
@@ -171,10 +169,10 @@ The implementation of this library is separated into the three public routines,
       1) =BoolMarshaler= does not need to parse the remaining arguments, since a
          boolean argument should behave like a switch; it can simply set its
          value to =true=.
-      2) =NumberMarshaler= pops the next string in the arguments array and
+      2) =NumberMarshaler= pops the next string in the argument list and
          converts it to a float.
       3) =StringMarshaler= pops the next string and copies it. 
-      4) =NumberListMarshaler= pops the next string and splits it into an array
+      4) =NumberListMarshaler= pops the next string and splits it into a list
          of smaller strings using ',' as a separator. Then, each of the smaller
          strings are converted to a float and a new array is constructed from
          those floats in the order they appeared in the originally popped
