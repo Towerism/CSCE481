@@ -20,14 +20,13 @@ retiring and Cadence was unable to maintain it. Besides having several issues,
 the old engine cannot be maintained so development of the new engine began.
 
 * Motivation
-It is very difficult to rely on humans to for electronic design. There are many
+It is very difficult to rely on humans for electronic design. There are many
 aspects of electronic design that make designs hard to route. For example, there
-are often millions of nets and hundreds of design rules. Thus, the motivation
-for Liu's research is to develop a fast global routing engine to replace the
-existing one for congestion estimation. Of course there is the question: is a
-new engine actually necessary? Customers must be convinced to make the
-switch. Many customers do not like change. However, customers were not happy
-with the current solution. Without a workaround, a new engine was necessary.
+are often millions of nets and hundreds of design rules. Motivated by circuit
+design complexity, the goal of Liu's research is to develop a fast global
+routing engine to replace the existing one for congestion estimation. The
+existing tools, which customers were not happy with, were becoming
+inadequate.
 
 Cadence decided that a new engine was necessary, not only because customers were
 unhappy with the old engine but also because the maintainer for the old engine
@@ -36,7 +35,7 @@ is his case study for the new engine from research to release.
 * New Contribution
 Liu's contribution includes not only new algorithms for EDA but also a case
 study on managing a EDA engine project from research to release. Once again the
-motivation for his research was a new global routing technique to do a fast
+goal for his research was a new global routing technique to do a fast
 routing pass, then highlight where there is congestion. These highlights are
 where a more detailed routing would be applied. The implemented design looks for
 opportunities to apply fast global routing and will continually apply this
