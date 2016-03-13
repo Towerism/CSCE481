@@ -128,7 +128,7 @@ This description of the implementation details of the Ruby Args library will be
 given using literate programming.
 *** Overview
 The implementation of this library is separated into the three public routines,
-=Args.expect=, =Parser#parse=, and =Parser#[]:
+=Args.expect=, =Parser#parse=, and =Parser#[]=:
 1) =Args.expect=
    1) Build a hash table of arguments each with a default value.
    2) Return a parser containing the resulting hash table.
