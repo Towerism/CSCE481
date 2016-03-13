@@ -67,13 +67,11 @@ such a block is
 #+BEGIN_SRC ruby
   do
     boolean "v,s"
-    number "n,p"
-    string "d"
-    number_list "a"
+    number "n"
   end
 #+END_SRC
 which, when passed to to =Args#expect=, would declare the arguments =v=, =s=,
-=n=, =p=, =d=, and =a=, each with a type corresponding to its declaration.
+=n=, and =p=, each with a type corresponding to its declaration.
 **** Output
 A parser expecting the declared arguments will be returned. Note that, if an
 empty block was passed in, a parser expecting zero arguments will be returned.
@@ -129,25 +127,26 @@ default values. For arguments which are unexpected but included in the parsed st
 This description of the implementation details of the Ruby Args library will be
 given using literate programming.
 *** Overview
-The implementation of this library is separated into the two public routines,
-=Args.expect= and =Parser#parse=:
+The implementation of this library is separated into the three public routines,
+=Args.expect=, =Parser#parse=, and =Parser#[]:
 1) =Args.expect=
-   1) Build a hash table of arguments each with a corresponding argument marshaler.
+   1) Build a hash table of arguments each with a default value.
    2) Return a parser containing the resulting hash table.
 2) =Parser#parse=
-   1) For each argument in the CLI argument list, get the corresponding
-      marshaler from the hash table.
-      1) Call upon the resulting marshaler to parse the argument's value.
-   2) Query the value of the appropriate marshaler to get an argument's value.
+   1) For each argument in the CLI argument list,
+      1) Ensure the argument is valid
+      2) Lookup the corresponding value in the hash table
+      3) Update the value with the value parsed from the argument list (the user
+         can call =Parser#[]= to look up the parsed value later).
 *** Argument Declaration
 1) Argument declaration begins with =Args.expect= which wraps the sending of the
-   =Parser= instance methods, =boolean=, =number=, =string=, and =number_list=.
-   1. Each marshaler class, inside its own class declaration, uses the static
-      method =Parser.add_declarator= to allow users of the =Parser= class to
-      declare arguments of the type that marshaler is concerned with. For
-      example, the =BooleanMarshaler= adds the method =Parser#boolean= to the
-      =Parser= class, enabling the user of the =Parser= class to declare boolean
-      arguments.
+   argument declarators, =boolean=, =number=, =string=, and =number_list=, to a
+   =Parser= instance.
+   1. Each marshaler class evaluates the static method =Parser.add_declarator=
+      to allow users of the =Parser= class to declare arguments of the type that
+      marshaler is concerned with. For example, the =BooleanMarshaler= class
+      adds the declarator =Parser#boolean= to the =Parser= class, enabling the
+      user of the =Parser= class to declare boolean arguments.
    2. Each of those functions wraps the =Parser#declare arguments= method, which
       stores each declared argument in a hash table along with an instance of
       the appropriate marshaler class (=BooleanMarshaler= for =boolean=,
@@ -158,18 +157,20 @@ The implementation of this library is separated into the two public routines,
 2) An instance of the =Parser= class prepared with a hash table of expected
    argument marshalers is returned.
 *** Parsing
-Parsing begins with =Parser#parse= which parses an argument list until it is empty.
-1) Parsing an argument entails ensuring the argument is valid and appropriately
-   setting the argument's value. The name is valid if and only if its prefix is
-   a '-'. Then, the name used in the hash table is the argument excluding the
-   '-'. Setting an argument's value entails ensuring that the name to which the
-   value is associated exists as a key in the hash table and then calling
-   =set_value= on the marshaler associated with that key. If the key is not in
-   the hash table, the parser is said to be invalid.
-   1) At this point, the marshaler associated with the key is responsible for
-      parsing the value from the remaining arguments.
-      1) =BoolMarshaler= does not need to parse the remaining
-         arguments; it can simply set its value to =true=.
+1) Parsing begins with =Parser#parse= which iterates through the CLI argument
+   list. For each argument in the list,
+   1) Its name is valid if and only if its prefix is a '-'. Then, the name used
+      in the hash table is the argument excluding the '-'.
+   2) Setting an its value entails ensuring that the name to which the
+      value is associated exists as a key in the hash table and then calling
+      =set_value= on the marshaler associated with that key. If the key is not in
+      the hash table, the parser is said to be invalid.
+   3) At this point, the marshaler associated with the key is responsible for
+      parsing the value from the remaining arguments. How the value is parsed
+      depends on the marshaler's type:
+      1) =BoolMarshaler= does not need to parse the remaining arguments, since a
+         boolean argument should behave like a switch; it can simply set its
+         value to =true=.
       2) =NumberMarshaler= pops the next string in the arguments array and
          converts it to a float.
       3) =StringMarshaler= pops the next string and copies it. 
@@ -178,9 +179,6 @@ Parsing begins with =Parser#parse= which parses an argument list until it is emp
          strings are converted to a float and a new array is constructed from
          those floats in the order they appeared in the originally popped
          string.
-2) Accessing the parsed values, then, only requires the user to lookup from the
-   hash table the marshaler for the argument he or she is concerned with and
-   query its value. This functionality is wrapped by the =Parser#[]= operator.
 ** Analysis
 *** Complexity
 =Args.expect= is linear in the number of arguments declared (i.e. adding up the
