@@ -114,7 +114,6 @@ default values. For arguments which are unexpected but included in the parsed st
 =Parser#valid?= will return false. Otherwise, =Parser#valid?= will return true.
 
 #+CAPTION: Argument types and their associated default values.
-#+ATTR_LATEX: :placement [h]
 #+TBLNAME: tab-default-arg-val
 | Type        | Default |
 |-------------+---------|
