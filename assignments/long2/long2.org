@@ -173,7 +173,7 @@ Parsing begins with =Parser#parse= which parses an argument list until it is emp
       2) =NumberMarshaler= pops the next string in the arguments array and converts it
          to a float.
       3) =StringMarshaler= pops the next string and copies it. 
-      4) =NumberListMarshaler= pops the next string and splits the it into an array of
+      4) =NumberListMarshaler= pops the next string and splits it into an array of
          smaller strings using ',' as a separator. Then, each of the smaller strings
          are converted to a float and a new array is constructed from those floats in
          the order they appeared in the originally popped string.
