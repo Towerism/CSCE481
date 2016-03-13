@@ -140,22 +140,23 @@ The implementation of this library is separated into the two public routines,
       1) Call upon the resulting marshaler to parse the argument's value.
    2) Query the value of the appropriate marshaler to get an argument's value.
 *** Argument Declaration
-1) Argument declaration begins with =Args.expect= which wraps the calling of the
+1) Argument declaration begins with =Args.expect= which wraps the sending of the
    =Parser= instance methods, =boolean=, =number=, =string=, and =number_list=.
-   1. Each marshaler class, inside its own class declaration, uses the static method
-      =Parser.add_declarator= to allow users of the =Parser= class to declare
-      arguments of the type that marshaler is concerned with. For example, the
-      =BooleanMarshaler= adds the method =Parser#boolean= to the =Parser=
-      class, enabling the user of the =Parser= class to declare boolean arguments.
+   1. Each marshaler class, inside its own class declaration, uses the static
+      method =Parser.add_declarator= to allow users of the =Parser= class to
+      declare arguments of the type that marshaler is concerned with. For
+      example, the =BooleanMarshaler= adds the method =Parser#boolean= to the
+      =Parser= class, enabling the user of the =Parser= class to declare boolean
+      arguments.
    2. Each of those functions wraps the =Parser#declare arguments= method, which
       stores each declared argument in a hash table along with an instance of
       the appropriate marshaler class (=BooleanMarshaler= for =boolean=,
       =StringMarshaler= for =string=, etc.). At construction, the marshaler sets
-      its value to the appropriate default. See Table ref:tab-default-arg-val for
-      those defaults.
+      its value to the appropriate default. See Table ref:tab-default-arg-val
+      for those defaults.
 
-2) An instance of the =Parser= class prepared with a hash table of expected argument
-   marshalers is returned.
+2) An instance of the =Parser= class prepared with a hash table of expected
+   argument marshalers is returned.
 *** Parsing
 Parsing begins with =Parser#parse= which parses an argument list until it is empty.
 1) Parsing an argument entails ensuring the argument is valid and appropriately
@@ -164,19 +165,19 @@ Parsing begins with =Parser#parse= which parses an argument list until it is emp
    '-'. Setting an argument's value entails ensuring that the name to which the
    value is associated exists as a key in the hash table and then calling
    =set_value= on the marshaler associated with that key. If the key is not in
-   the hash table, the parser is said to be invalid. 
-   1) At this point, the
-      marshaler associated with the key is responsible for parsing the value from
-      the remaining arguments.
+   the hash table, the parser is said to be invalid.
+   1) At this point, the marshaler associated with the key is responsible for
+      parsing the value from the remaining arguments.
       1) =BoolMarshaler= does not need to parse the remaining
          arguments; it can simply set its value to =true=.
-      2) =NumberMarshaler= pops the next string in the arguments array and converts it
-         to a float.
+      2) =NumberMarshaler= pops the next string in the arguments array and
+         converts it to a float.
       3) =StringMarshaler= pops the next string and copies it. 
-      4) =NumberListMarshaler= pops the next string and splits it into an array of
-         smaller strings using ',' as a separator. Then, each of the smaller strings
-         are converted to a float and a new array is constructed from those floats in
-         the order they appeared in the originally popped string.
+      4) =NumberListMarshaler= pops the next string and splits it into an array
+         of smaller strings using ',' as a separator. Then, each of the smaller
+         strings are converted to a float and a new array is constructed from
+         those floats in the order they appeared in the originally popped
+         string.
 2) Accessing the parsed values, then, only requires the user to lookup from the
    hash table the marshaler for the argument he or she is concerned with and
    query its value. This functionality is wrapped by the =Parser#[]= operator.
