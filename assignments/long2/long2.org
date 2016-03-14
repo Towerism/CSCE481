@@ -79,14 +79,13 @@ The user calls this method to parse a list of CLI arguments according to the
 expected arguments. See ref:usage for an example of how to declare the expected
 arguments.
 **** Input
-The user should pass in a list containing the CLI arguments. Each argument
-name should start with a dash, and the values associated with each argument
-should follow the argument's name in the list.
+The user should pass in a list containing the CLI arguments. Each argument name
+should start with a dash, and each argument's value should follow the argument's
+name in the list.
 
-Note that boolean arguments act as switches and should not carry with them any
+Note that boolean arguments act as switches and should not be followed by any
 value, and the value of a number list argument should be a comma-separated list
-of numbers. If spaces are preferred after each comma, then the whole number list
-should be surrounded by quotes.
+of numbers.
 
 Examples of valid CLI input, assuming that =b= is a boolean, =n= is a number,
 =l= is a number list, and =s= is a string, are
