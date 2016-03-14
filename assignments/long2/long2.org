@@ -12,10 +12,8 @@ same library which he used as a case study of test-driven development in his
 book /Clean Code: A Handbook of Agile Software Craftsmanship/ cite:cleancode.
 * Project Structure
 The Ruby Args project consists of two main source files: =args_spec.rb=, and
-=args.rb=. There is another file, =Main.rb=, which serves as a demonstration of
-the usage of Ruby Args, but reading =args_spec.rb=, which describes the business
-logic of Ruby Args, should be sufficient enough to get a crisp understanding of
-how to use the library.
+=args.rb=. There is another file, =Main.rb=, which is not used by the library
+but rather serves as an example of usage.
 
 The file =args.rb= is the primary file in the project as it contains the logic
 for the entire library. It contains a single =Args= class which contains the
@@ -138,7 +136,9 @@ routines, =Args.expect= and =Parser#parse=:
 *** Argument Declaration
 1) Argument declaration begins with =Args.expect= which wraps the sending of the
    argument declarator methods, =boolean=, =number=, =string=, and
-   =number_list=, to a =Parser= instance.
+   =number_list=, to a =Parser= instance. The declarator methods are not defined
+   in the =Parser= class directly, but are instead each added to the =Parser=
+   class during definition of each of the marshaler classes.
    1) Each marshaler class evaluates the static method =Parser.add_declarator=
       to allow users of the =Parser= class to declare arguments of the type that
       marshaler is concerned with. For example, the =BoolMarshaler= class
@@ -150,7 +150,6 @@ routines, =Args.expect= and =Parser#parse=:
       =StringMarshaler= for =string=, etc.). At construction, the marshaler sets
       its value to the appropriate default. See Table ref:tab-default-arg-val
       for those defaults.
-
 2) An instance of the =Parser= class prepared with a hash table of expected
    argument marshalers is returned.
 *** Parsing
