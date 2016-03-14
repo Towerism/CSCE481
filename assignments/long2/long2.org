@@ -158,7 +158,7 @@ routines, =Args.expect= and =Parser#parse=:
    list. For each argument in the list, we have the following:
    1) Its name is valid if and only if its prefix is a '-', and the name used
       in the hash table is the argument excluding the '-'. If the name is
-      invalid, the parser is to be also invalid.
+      invalid, the parser is considered to be invalid as well.
    2) Setting its value entails ensuring that the name to which the
       value is associated exists as a key in the hash table and then calling
       =set_value= on the marshaler associated with that key. If the key is not in
