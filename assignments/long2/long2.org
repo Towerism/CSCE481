@@ -18,12 +18,13 @@ but rather serves as an example of usage.
 The file =args.rb= is the primary file in the project as it contains the logic
 for the entire library. It contains a single =Args= class which contains the
 nested classes: =Parser=, =BoolMarshaler=, =NumberMarshaler=, =StringMarshaler=,
-and =NumberListMarshaler=.
+and =NumberListMarshaler=. The logic contained in =args.rb= can be exercised in the
+unit tests found in =args_spec.rb=.
 * Library Explanation
-Ruby Args parses command line interface (CLI) arguments passed in at invocation
-given a specification of expected arguments and argument types. Note that for
-the remainder of this document, =Class.method= will refer to a static method,
-and =Class#method= will refer to an instance method.
+Ruby Args parses command line interface (CLI) arguments given a specification of
+expected arguments and argument types. Note that for the remainder of this
+document, =Class.method= will refer to a static method, and =Class#method= will
+refer to an instance method.
 ** Usage label:usage
 The user should instantiate a parser by declaring the expected arguments using
 =Args.expect=. See ref:ioexpect for a more in-depth explanation of the expected
