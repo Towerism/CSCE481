@@ -5,106 +5,205 @@
 #+LATEX_HEADER: \bibliographystyle{alphadin}
 #+LATEX_HEADER: \input{titlepage}
 
-* Ruby Args
-Ruby Args cite:argsgit is a small library written by Bob Martin to complement
-the java version of the same library which he used in his book /Clean Code: A
-Handbook of Agile Software Craftsmanship/ cite:cleancode.
-** Project Structure
-The Ruby Args project consists of the three source files: =args_spec.rb=,
-=Main.rb=, and =args.rb=.
-*** =args_spec.rb=
-Bob Martin describes the business logic of Ruby Args in this file. Bob Martin
-wrote the java version of this program using test-driven development
-cite:cleancode, and this file suggests that he would have used test-driven
-development for this project as well.
-*** =Main.rb=
-This file is mostly superfluous because =args_spec.rb= already does a fine job
-at explaining how the library works and how to use it. Nonetheless, this file
-demonstrates a main function that can parse CLI (command line interface)
-arguments and print the parsed arguments for the user.
-*** =args.rb=
-This file contains the entire argument parsing library as written by Bob
-Martin. It contains a single =Args= class which contains the nested classes:
-=Parser=, =BoolMarshaler=, =NumberMarshaler=, and =NumberListMarshaler=. The
-rest of this document will focus mostly on =args.rb=.
+* Introduction
+Ruby Args, which can be found on Github cite:argsgit, is a small library written
+by Robert Martin (Github user =unclebob=) to complement the java version of the
+same library which he used as a case study of test-driven development in his
+book /Clean Code: A Handbook of Agile Software Craftsmanship/ cite:cleancode.
+* Project Structure
+The Ruby Args project consists of two main source files: =args_spec.rb=, and
+=args.rb=. There is another file, =Main.rb=, which is not used by the library
+but rather serves as an example of usage.
 
-** Library Explanation
-Ruby Args parses CLI arguments passed in at invocation given a specification of
-expected arguments and argument types.
-*** Usage
-An instance of the =Parser= class is returned by the static method
-=Args.expect=. =Args.expect= should be called with a block declaring the
-types and names of the expected arguments.
+The file =args.rb= is the primary file in the project as it contains the logic
+for the entire library. It contains a single =Args= class which contains the
+nested classes: =Parser=, =BoolMarshaler=, =NumberMarshaler=, =StringMarshaler=,
+and =NumberListMarshaler=. The logic contained in =args.rb= can be exercised in the
+unit tests found in =args_spec.rb=.
+* Library Explanation
+Ruby Args parses command line interface (CLI) arguments given a specification of
+expected arguments and argument types. Note that for the remainder of this
+document, =Class.method= will refer to a static method, and =Class#method= will
+refer to an instance method.
+** Usage label:usage
+The user should instantiate a parser by declaring the expected arguments using
+=Args.expect=. See ref:ioexpect for a more in-depth explanation of the expected
+input for =Args.expect=.
 #+BEGIN_SRC ruby
   parser = Args.expect do
-    boolean "v,s"
-    number "t"
     string "f"
   end
 #+END_SRC
 
-Given an instance of the =Parser= class, the user can simply call the =parse=
-method in order to parse the CLI arguments. Then the user can access the value
-of each argument using the =[]= operator and the argument's name as a key.
+Given an instance of the =Parser= class, the user can simply call the
+=Parser#parse= method in order to parse the CLI arguments. Then, the user can
+access the value of each argument using the =Parser#[]= operator.
 #+BEGIN_SRC ruby
   parser.parse(ARGV)
-
-  verbose = parser["v"]
-  shorthand = parser["s"]
-  times = parser["t"]
   file = parser["f"]
 #+END_SRC
 
-If, for whatever reason, there was an unexpected argument, then the method
-=valid?= will return false after having called =parse=.
+After parsing, the user can use =Parser#valid?= to check if parsing was
+successful. See ref:ioparse for a more in-depth explanation of the input and output
+of =Parser#parse=.
 #+BEGIN_SRC ruby
   if not parser.valid?
-    puts = "Usage: <Program> [v] [s] [t <times>] [f <file>]"
+    puts = "Usage: <Program> [f <file>]"
   end
 #+END_SRC
-
-*** I/O Specification
-As previously said, Bob Martin most likely wrote this library using test-driven
-development. This section will describe the business logic of the library in
+** I/O Specification 
+This section will describe the business logic of the library in
 more detail.
-
-**** =Args#expect=
-The user calls this function to specify what arguments the parser
-should expect.
-***** Input
-The user should pass in a block containing several statements each declaring
-several comma-separated argument names which will be of one particular type
-(=boolean=, =number=, =string=, or =number_list=). Examples of such statements
-are
+*** =Args#expect= label:ioexpect
+The user calls this method to specify what arguments the parser should
+expect. See ref:usage for an example of an argument declaration being passed to
+=Args#expect=.
+**** Input
+The user should pass in a block containing any number of statements each
+declaring one or more comma-separated argument names which will all be of one
+particular type: =boolean=, =number=, =string=, or =number_list=. An example of
+such a block is
 #+BEGIN_SRC ruby
-  boolean "v,s"
-  number "n,p"
-  string "d"
-  number_list "a"
+  do
+    boolean "v,s"
+    number "n"
+  end
 #+END_SRC
-which would declare two arguments, =w= and =s=, each of type boolean.
-***** Output
+which, when passed to to =Args#expect=, would declare the boolean arguments =v=
+and =s=, and the number argument =n=.
+**** Output
 A parser expecting the declared arguments will be returned. Note that, if an
 empty block was passed in, a parser expecting zero arguments will be returned.
+*** =Parser#parse= label:ioparse
+The user calls this method to parse a list of CLI arguments according to the
+expected arguments. See ref:usage for an example of how to declare the expected
+arguments.
+**** Input
+The user should pass in a list containing the CLI arguments. Each argument name
+should start with a dash, and each argument's value should follow the argument's
+name in the list.
 
-**** =Parser#parse=
-Parses a string according to the expected arguments.
-***** Input
-The user should pass in a string containing the arguments passed in at program
-invocation. That is each argument name should start with a dash. The values
-associated with each argument should follow the argument's name plus a
-space.
-
-Note that boolean arguments act as switches and should not carry with them any
+Note that boolean arguments act as switches and should not be followed by any
 value, and the value of a number list argument should be a comma-separated list
-of numbers (no spaces). It is also worth noting that string arguments do not
-need to be surrounded by quotes unless the string contains spaces.
+of numbers.
 
-Examples of valid arguments assuming that =b= is a boolean, =n= is a number,
+Examples of valid CLI input, assuming that =b= is a boolean, =n= is a number,
 =l= is a number list, and =s= is a string, are
 #+BEGIN_SRC
   -b -n 50 -l 2,4,6 -s text
-  -b -n 50 -l 2 -s "text"
+  -b -n 50 -l "2.2, 4, 6" -s "text"
+  -b -n 5.0 -l 2.2 -s "more text"
 #+END_SRC
+**** Output
+There is no direct output for this method. Instead, the values of the arguments
+can be accessed using the =Parser#[]= operator. For example, below can be seen
+the results after calling =Parser#parse= on the first line of arguments seen
+above:
+#+BEGIN_SRC ruby
+  mybool = parser["b"]    # => true
+  mynum = parser["n"]     # => 50
+  mynumlist = parser["l"] # => [2,4,6]
+  mystring = parser["s"]  # => "text"
+#+END_SRC
+
+For arguments which are expected but omitted in the parsed string, the =Parser=
+assigns to them default values. See Table ref:tab-default-arg-val for the
+default values. For arguments which are unexpected but included in the parsed string,
+=Parser#valid?= will return false. Otherwise, =Parser#valid?= will return true.
+
+#+CAPTION: Argument types and their associated default values.
+#+TBLNAME: tab-default-arg-val
+| Type        | Default |
+|-------------+---------|
+| Boolean     | =false= |
+| Number      | =0=     |
+| Number List | =[]=    |
+| String      | ""      |
+
+** Implementation Details
+*** Overview
+The implementation of this library is separated primarily into the two public
+routines, =Args.expect= and =Parser#parse=:
+1) =Args.expect=
+   1) Build a hash table of arguments each with a default value.
+   2) Return a parser containing the resulting hash table.
+2) =Parser#parse=
+   1) For each argument in the CLI argument list,
+      1) ensure the argument is valid,
+      2) lookup the corresponding value in the hash table, and
+      3) update the value with the value parsed from the argument list (the user
+         can use =Parser#[]= to lookup the parsed value later).
+*** Argument Declaration
+1) Argument declaration begins with =Args.expect= which wraps the sending of the
+   argument declarator methods, =boolean=, =number=, =string=, and
+   =number_list=, to a =Parser= instance. The declarator methods are not defined
+   in the =Parser= class directly, but are instead each added to the =Parser=
+   class during definition of each of the marshaler classes.
+   1) Each marshaler class evaluates the static method =Parser.add_declarator=
+      to allow users of the =Parser= class to declare arguments of the type that
+      marshaler is concerned with. For example, the =BoolMarshaler= class
+      adds the declarator =Parser#boolean= to the =Parser= class, enabling the
+      user of the =Parser= class to declare boolean arguments.
+   2) Each of the declarators wraps the =Parser#declare_arguments= method, which
+      stores each declared argument in a hash table along with an instance of
+      the appropriate marshaler class (=BoolMarshaler= for =boolean=,
+      =StringMarshaler= for =string=, etc.). At construction, the marshaler sets
+      its value to the appropriate default. See Table ref:tab-default-arg-val
+      for those defaults.
+2) An instance of the =Parser= class prepared with a hash table of expected
+   argument marshalers is returned.
+*** Parsing
+1) Parsing begins with =Parser#parse= which iterates through the CLI argument
+   list. For each argument in the list, we have the following:
+   1) Its name is valid if and only if its prefix is a '-', and the name used
+      in the hash table is the argument excluding the '-'. If the name is
+      invalid, the parser is considered to be invalid as well.
+   2) Setting its value entails ensuring that the name to which the
+      value is associated exists as a key in the hash table and then calling
+      =set_value= on the marshaler associated with that key. If the key is not in
+      the hash table, the parser is said to be invalid.
+   3) At this point, the marshaler associated with the key is responsible for
+      parsing the value from the remaining arguments. How the value is parsed
+      depends on the marshaler's type:
+      1) =BoolMarshaler= does not need to parse the remaining arguments, since a
+         boolean argument should behave like a switch; it can simply set its
+         value to =true=.
+      2) =NumberMarshaler= pops the next string in the argument list and
+         converts it to a float.
+      3) =StringMarshaler= pops the next string and copies it. 
+      4) =NumberListMarshaler= pops the next string and splits it into a list
+         of smaller strings using ',' as a separator. Then, each of the smaller
+         strings are converted to a float and a new list is constructed from
+         those floats in the order they appeared in the originally popped
+         string.
+** Analysis
+This section will analyze the complexity and practicality of the Ruby Args
+library as implemented by Robert Martin.
+*** Complexity
+=Args.expect= is linear in the number of arguments declared (i.e. adding up the
+arguments declared in each declarator call), assuming =Class.eval_module= can be
+executed in constant time. Each declarator calls =Parser#declare_arguments=
+which is clearly linear in the number of arguments declared.
+
+=Parser#parse= is linear in the total amount of characters to be parsed plus the
+length of the CLI argument list, assuming =String#dup= and =String#to_f= are
+linear in the number of characters to be copied or parsed. =Parser#parse= is
+clearly a linear iteration over the CLI argument list. Each iteration involves
+visiting an object having the type of one of the marshalers. The boolean
+marshaler can parse its value in constant time, but parsing for the other
+marshalers each involves the processing of one more characters.
+
+*** Practicality
+Ruby Args seems to perform adequately. However, practical usage seems to be
+restricted to educational use, as, through somewhat trivial stress testing, it
+was observed that the case of when the user fails to pass a value to any numeric
+argument (e.g. "ruby Main.rb -n", if n is a numeric argument), either a ruby
+run-time error would occur, or the library would silently fail, using the
+argument's default value after essentially discarding the argument after it,
+depending on whether the numeric argument was the last argument given or
+not. The former can be fixed by wrapping the =Parser#parse= call in a rescue
+block, but the latter is very bad. As most users expect CLI programs to never
+silently fail or expose implementation details, users of this library should be
+wary.
 
 bibliography:references.bib
