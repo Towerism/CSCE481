@@ -8,7 +8,7 @@ information technology, and software engineering. In our careers, we will
 inevitably come across difficult decisions. Sometimes the laws are clear-cut,
 but most of the time we find ourselves in gray situations, and we need an
 ethical framework that we can fallback on when the law does not make it clear
-which decision is correct in terms of the issues of intellectual property (IP).
+which decision is correct in terms of the issues of intellectual property.
 
 The frameworks discussed included the utilitarian framework as well as moral
 principles as a framework. In the utilitarian framework, the pros and cons are
@@ -21,14 +21,15 @@ principles is that the reasons behind our actions matter just as much as the
 outcome.
 
 Many decisions in our career will revolve around Intellectual Property (IP). IP
-includes patents, copyrights, and trademarks, trade secrets which all exist to
-protect new ideas from being copied. Patents usually encompass design and
-utility concepts: expressions of ideas. Copyrights are typically associated with
-literature, music, works of art, and computer software, and do not protect
-ideas. Furthermore, while software can be copyrighted, algorithms cannot be
-copyrighted, nor patented; however, the implementation therein can by
-copyrighted. Software is unique in this regard: source code appears to be an
-expression of an idea, while the object code is seen as more of a utility.
+includes patents, copyrights, trademarks, and trade secrets which all exist to
+either encourage technological growth or protect works of authorship. Patents
+usually encompass design and utility concepts: expressions of ideas. Copyrights
+are typically associated with literature, music, works of art, and computer
+software, and do not protect ideas. Furthermore, while software can be
+copyrighted, algorithms cannot be copyrighted, nor patented; however, the
+implementation thereof can by copyrighted. Software is unique in this regard:
+source code appears to be an expression of an idea, while the object code is
+seen as more of a utility.
 * Thoughts
 I managed to secure an internship this summer as a Rentsys Disaster Recovery
 Intern where I will be troubleshooting a wide variety of software and hardware
