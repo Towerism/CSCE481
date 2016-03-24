@@ -1,0 +1,6 @@
+#+TITLE: Seminar Report 14
+#+AUTHOR: Martin Fracker
+#+OPTIONS: toc:nil num:nil
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+* Summary
+* Thoughts
