@@ -12,7 +12,7 @@ Microsoft Windows, in the form of an end-user license agreement
 (EULA). Proprietary licenses usually place a lot of restrictions on the
 user. For example, a lot of times the user does not own a copy of the software,
 but rather has a right to use it under specific circumstances. Free software
-license is another kind of license. The GNU General Public License (GPL) is a
+licenses are another kind of license. The GNU General Public License (GPL) is a
 famous example. It allows users complete freedom to use, modify, and
 redistribute the code. There are restrictions that protect the user of free
 software. For example, redistribution of free software must always include the
@@ -25,20 +25,23 @@ usefulness. Many developers and users are affected by bugs in some way,
 positively or negatively. Thus, developers need to protect themselves by making
 users agree to a license which holds the user responsible for his or use of the
 software even if the software causes problems therein due to bugs. As far as
-usefulness, there is a test known as "fitness for "purpose". A proposed law,
-passed only in a couple states, tries to enforce this test.
+usefulness, there is a test known as "fitness for purpose". A proposed law,
+passed only in a couple states, tries to enforce this test. Software quality is
+a huge deal in ethics due to hyper-threatening bugs like Heartbleed and the
+bug-ridden software controller written by Toyota in 2013.
 
 * Thoughts
 I fully support Richard Stallman and his free software movement. My motives are
-purely educational. I enjoy learning by example, reading code written by
+purely educational. I enjoy learning by example and reading code written by
 others. Therefore, whenever I write code for my own personal edification, I
-always make it free. That is, I bind the users of my software to the GPL. 
+always make it free. That is, I bind the users of my software to the GPL. This
+way, others can benefit from the code I have written. 
 
 On the other hand, many companies believe that there is no money to be made from
 GPL licensed-software. I disagree. Red Hat Enterprise Linux (RHEL) is a great
 example of a company capitalizing on the necessity of technical support much
-free software required, many Linux distributions being prime examples of
-this. Thus, Red Hat maintains its own distribution of linux known as
+free software requires (many Linux distributions being prime examples of
+this). Thus, Red Hat maintains its own distribution of linux known as
 RHEL. However, in order to make money, and since its distribution is free
 software, it advertises software and hardware technical support.
 
