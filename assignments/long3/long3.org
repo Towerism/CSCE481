@@ -1,0 +1,17 @@
+#+TITLE: Long Assignment 3
+#+AUTHOR: Martin Fracker
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+LATEX_HEADER: \usepackage{hyperref}
+#+LATEX_HEADER: \bibliographystyle{alphadin}
+#+LATEX_HEADER: \input{titlepage}
+
+* Abstract
+* Problem Identification
+* Current Infrastructure
+* Plan
+* Significance
+* Methods
+* Problems
+* Budget
+* Timeline
+bibliography:references.bib
