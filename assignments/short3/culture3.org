@@ -6,13 +6,48 @@
 #+LATEX_HEADER: \input{titlepage}
 #+LATEX_HEADER: \bibliographystyle{alphadin}
 
-
 \newpage
 * Introduction
 The seminar was given by Chad Jenkins cite:website who is an associate
 professor, roboticist, and computer scientist in the Electrical and Engineering
-and Computer Science department at the University of Michigan. He spoke about
-the perception of people and scenes for robot learning from demonstration.
+and Computer Science department at the University of Michigan. Jenkins spoke
+about the perception of people and scenes for robot learning from
+demonstration. Robots have pervaded nearly every aspect of our lies, from
+package delivery, home maintenance, and transportation. Robots in general are
+becoming not only more prevalent and ubiquitous, but are also growing in the
+number of things they are expected to do individually. This places a high demand
+on the ability of robots to accurately remote sense more and more of its
+environment. There are several issues with satisfying these demands. One of
+these is due to how difficult it is to distribute a robot developed in the
+lab. Comparing the distribution of software to robots, software is significantly
+easier because they can be written in a deterministic environment and expected
+to be run in deterministic environments as well. In contrast, robots certainly
+can only be expected to be run in a non-deterministic environment. In general,
+the amount of variables to take into account during development is significantly
+higher.
 * Motivation
+Therefore, Jenkins is motivated to overcome this by applying basic robot
+learning from demonstration to configure a robot to autonomously generalize its
+learning to new situations, and, in general, overcome uncertainty in
+non-deterministic environments. Gaussian process regression allows one to build
+a model by comparing data in the current situation and predicting future actions
+from past training data. However, perceptual aliasing is tough to overcome
+making a programmed robot more desirable than a trained robot in some
+cases. Furthermore, there are more issues such as adapting past learning to new
+tasks, making the learning aspect usable to administrators, prior conditions,
+and updating intentions.
 * New Contribution
+Jenkins has made progress in areas of robotics that enable robots to overcome
+slow learned-comparison prediction, human movement prediction difficulties, and
+difficulties in object detection. By using multi-modality finite state
+machines, Jenkins found that a robot can reliably and quickly perform a learned
+action. To capture and predict human body poses, Jenkins explained that together
+with particle filters and physical dynamics to accurately track physical
+motion. By utilizing a character controller to predict a state machine based on
+motion capture, Jenkins found he can reliably reconstruct motion and even apply
+the learned data to adapt to different environments. By using an axiomatic
+particle filter, Jenkins found that a robot can distinguish objects even if they
+are in what would seem to be an indistinguishable pile and then generate the
+proper actions to reach a desired goal state.
+
 bibliography:references.bib
