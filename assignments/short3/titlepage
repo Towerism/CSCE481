@@ -1,0 +1,30 @@
+\renewcommand\maketitle{\begin{titlepage}
+{\begingroup 
+\centering 
+\vspace*{\baselineskip} 
+
+
+{\Huge Fracker, Martin\par} 
+\vspace*{1\baselineskip}
+
+CSCE 481 Spring 2016\\[\baselineskip]
+
+\vspace*{1\baselineskip}
+\today
+
+\vspace*{5\baselineskip} 
+{\LARGE Culture Assignment 3} \\[\baselineskip]
+
+
+\vspace*{1\baselineskip}
+{\scshape
+Version 1}
+
+\vspace*{5\baselineskip} 
+This work represents my individual work, and I have listed the sources that I
+have consulted. I have not received assistance that would violate the letter or
+spirit of the collaboration guidelines for this assignment.
+
+\endgroup\clearpage}
+\end{titlepage}
+}

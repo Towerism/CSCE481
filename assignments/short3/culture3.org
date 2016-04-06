@@ -1,0 +1,18 @@
+#+TITLE: Short Assignment 3
+#+AUTHOR: Martin Fracker
+#+OPTIONS: toc:nil num:nil
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+LATEX_HEADER: \usepackage{hyperref}
+#+LATEX_HEADER: \input{titlepage}
+#+LATEX_HEADER: \bibliographystyle{alphadin}
+
+
+\newpage
+* Introduction
+The seminar was given by Chad Jenkins cite:website who is an associate
+professor, roboticist, and computer scientist in the Electrical and Engineering
+and Computer Science department at the University of Michigan. He spoke about
+the perception of people and scenes for robot learning from demonstration.
+* Motivation
+* New Contribution
+bibliography:references.bib
