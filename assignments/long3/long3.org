@@ -2,7 +2,7 @@
 #+AUTHOR: Martin Fracker
 #+LATEX_HEADER: \usepackage[margin=1in]{geometry}
 #+LATEX_HEADER: \usepackage{hyperref}
-#+LATEX_HEADER: \bibliographystyle{alphadin}
+#+LATEX_HEADER: \bibliographystyle{plain}
 #+LATEX_HEADER: \input{titlepage}
 
 * Abstract
@@ -10,32 +10,31 @@ Various separate tools exist that when used together can allow users to remotely
 participate in pair programming, an extreme programming technique which places
 two programmers at the same terminal and, when done correctly, is often faster
 than one programmer developing on his or her own since there are two pairs of
-eyes looking for mistakes and offering, more often than not, unique
-ideas. 
-
-The issue is that the barrier of entry to remote, pair programming is only
-increased by requiring developers to ensure they both have the requisite
-software installed on their systems. Therefore there is a motivation to develop
-a system providing users with cloud-based development environment which would
-offer users a full customizable workflow together with a powerful code editor
-enabling users to collaborate on code in real time and to seamlessly open up
-audio communication channels between each other.
+eyes looking for mistakes and offering, more often than not, unique ideas. The
+issue is that the barrier of entry to remote, pair programming is only increased
+by requiring developers to ensure they both have the requisite software
+installed on their systems. Therefore there is a motivation to develop a system
+providing users with cloud-based development environment which would offer users
+a full customizable workflow together with a powerful code editor enabling users
+to collaborate on code in real time and to seamlessly open up audio
+communication channels between each other.
 
 * Problem Identification
 Distributed revision control systems such as Git has enabled developers from
 around the world to collaborate on large, complex systems asynchronously. With
 more and more organizations embracing agile methodologies as well as extreme
-programming techniques like test-driven development, the demand for Unit testing
+programming techniques like test-driven development, the demand for unit testing
 frameworks like Google Test and JUnit together with continuous integration
 platforms such as Travis and Jenkins which help boost the productivity of these
-large networks of developers are increasingly steadily. 
+large networks of developers are increasingly steadily cite:riseofagile. 
 
 Pair programming, another extreme programming technique, places two programmers
-at the same terminal. While one programmer does the writing, the other
-programmer is making most of the programming decisions, otherwise known as
-"driving". Pair programming done correctly is often faster than one programmer
-developing on his or her own since there are two pairs of eyes looking for
-mistakes and offering, more often than not, unique ideas.
+at the same terminal. While one programmer does the writing, or so called
+"driving, " the other programmer is observing, on the lookout for defects,
+syntactical errors while also considering the short term future of the
+code. Pair programming done correctly is usually slower than a single programmer
+working on his or her own but this is usually out weighed by the resulting
+software having less defects and a higher quality in general cite:teamprogramming.
 
 The problem with pair programming is that it does not lend itself well to remote
 collaboration, since two developers must sit at the same terminal or otherwise
@@ -54,15 +53,15 @@ Team Viewer or Skype. However this introduces the issue low video quality and
 more latency.
 * Plan
 I propose a cloud-based development environment such as Cloud9 IDE, which offers
-users a Docker-powered Ubuntu container allowing users full customizability for
+users a fully customizable cloud workstation which can be tailored to suit
 their workflow needs together with a powerful code editor enabling users to
-collaborate on code in real time. In addition to what Cloud9 offers, users would
-easily be able to open up an audio communication channel between each other.
+collaborate on code in real time. In addition, users would easily be able to
+open up an audio communication channel between each other.
 
 The plan for developing this environment has three parts: configure servers for
-the docker containers as well as for audio channels, writing the back-end for
-both real-time code editor, and developing the web
-interface for both coding and communication.
+the cloud workstation infrastructure as well as for audio channels, writing the
+back-end for both real-time code editor, and developing the web interface for
+both coding and communication.
 * Significance
 A cloud-based environment as described above would enable a seamless development
 workflow allowing users a crystal clear view port of the code they are
@@ -87,11 +86,11 @@ money than budgeted.
 * Timeline
 The project timeline is straightforward. From the very beginning, all three
 groups can immediately begin working. Each server administrator should be able
-to configure the Ubuntu Docker and audio channel infrastructures respectively in
-the first month. After the first month, the server administrators need only be
-able to fix any issues the developers face when integrating with the docker and
-audio channel infrastructures, which is why they should only need to work part
-time after the first month. 
+to configure the cloud workstation and audio channel infrastructures
+respectively in the first month. After the first month, the server
+administrators need only be able to fix any issues the developers face when
+integrating with the cloud workstation and audio channel infrastructures, which
+is why they should only need to work part time after the first month.
 
 After the first month, the rest of the project can be separated into two
 integration stages and a testing stage. At the web integration stage, which
@@ -102,5 +101,14 @@ fourth month, the web developers will ensure that the web interface can
 appropriately facilitate communication over an audio channel. For the last two
 months, the developers will begin an open beta test in order to eliminate any
 remaining problems before release.
+* Conclusion
+The proposed solution would alleviate one of the issues of pair programming in
+that it does not lend itself well to remote collaboration, since two developers
+must sit at the same terminal or otherwise use a collection of separate tools to
+facilitate screen sharing and audio communication. In this regard the cloud
+solution as proposed here would lower the barrier-to-entry of remote pair
+programming. Although it would be a challenge to implement, with the release of
+this cloud package, remote, pair programming becomes easier, and the
+possibilities for remote collaboration are greater in general.
 
 bibliography:references.bib
