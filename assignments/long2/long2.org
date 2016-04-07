@@ -5,6 +5,7 @@
 #+LATEX_HEADER: \bibliographystyle{alphadin}
 #+LATEX_HEADER: \input{titlepage}
 
+\newpage
 * Introduction
 Ruby Args, which can be found on Github cite:argsgit, is a small library written
 by Robert Martin (Github user =unclebob=) to complement the java version of the
