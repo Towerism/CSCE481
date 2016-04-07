@@ -37,10 +37,11 @@ demonstrations, future actions can be predicted. However, perceptual aliasing is
 tough to overcome making a programmed robot more desirable than a trained robot
 in some cases. Furthermore, there are more issues such as adapting past learning
 to new tasks, making the demonstration aspect intuitive and usable to
-administrators, capturing prior conditions, and iteratively updating intentions.
+administrators, capturing prior conditions, and iteratively updating intentions
+which add to the difficulty.
 * New Contribution
 Jenkins has made progress in areas of robotics that enable robots to overcome
-slow a prediction and decision-making process, as well as difficulties in human
+a slow prediction and decision-making process, as well as difficulties in human
 movement prediction and in object detection. By using multi-modality finite
 state machines, Jenkins found that a robot can reliably and quickly perform a
 learned action. To capture and predict human body poses, Jenkins explained that,
