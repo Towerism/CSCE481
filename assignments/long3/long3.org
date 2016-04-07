@@ -6,12 +6,101 @@
 #+LATEX_HEADER: \input{titlepage}
 
 * Abstract
+Various separate tools exist that when used together can allow users to remotely
+participate in pair programming, an extreme programming technique which places
+two programmers at the same terminal and, when done correctly, is often faster
+than one programmer developing on his or her own since there are two pairs of
+eyes looking for mistakes and offering, more often than not, unique
+ideas. 
+
+The issue is that the barrier of entry to remote, pair programming is only
+increased by requiring developers to ensure they both have the requisite
+software installed on their systems. Therefore there is a motivation to develop
+a system providing users with cloud-based development environment which would
+offer users a full customizable workflow together with a powerful code editor
+enabling users to collaborate on code in real time and to seamlessly open up
+audio communication channels between each other.
+
 * Problem Identification
+Distributed revision control systems such as Git has enabled developers from
+around the world to collaborate on large, complex systems asynchronously. With
+more and more organizations embracing agile methodologies as well as extreme
+programming techniques like test-driven development, the demand for Unit testing
+frameworks like Google Test and JUnit together with continuous integration
+platforms such as Travis and Jenkins which help boost the productivity of these
+large networks of developers are increasingly steadily. 
+
+Pair programming, another extreme programming technique, places two programmers
+at the same terminal. While one programmer does the writing, the other
+programmer is making most of the programming decisions, otherwise known as
+"driving". Pair programming done correctly is often faster than one programmer
+developing on his or her own since there are two pairs of eyes looking for
+mistakes and offering, more often than not, unique ideas.
+
+The problem with pair programming is that it does not lend itself well to remote
+collaboration, since two developers must sit at the same terminal or otherwise
+use a collection of separate tools to facilitate screen sharing and audio
+communication. The barrier of entry to remote, pair programming is only increased
+by requiring developers to ensure they both have the requisite software
+installed on their systems.
 * Current Infrastructure
+Various separate tools exist that when used together can allow users to remotely
+participate in pair programming. For example, Cloud9 (Integrated Development
+Environment) IDE allows users to collaborate in the cloud simultaneously almost in
+the same manner as multiple users are able to collaborate on a single Google
+Doc. Audio communication can be facilitated over the phone or through conference
+software such as Skype. Alternatively, one developer can screen share through
+Team Viewer or Skype. However this introduces the issue low video quality and
+more latency.
 * Plan
+I propose a cloud-based development environment such as Cloud9 IDE, which offers
+users a Docker-powered Ubuntu container allowing users full customizability for
+their workflow needs together with a powerful code editor enabling users to
+collaborate on code in real time. In addition to what Cloud9 offers, users would
+easily be able to open up an audio communication channel between each other.
+
+The plan for developing this environment has three parts: configure servers for
+the docker containers as well as for audio channels, writing the back-end for
+both real-time code editor, and developing the web
+interface for both coding and communication.
 * Significance
-* Methods
-* Problems
+A cloud-based environment as described above would enable a seamless development
+workflow allowing users a crystal clear view port of the code they are
+collaborating on as well as an audio communication channel all in the same cloud
+package. This has meaningful implications for remote collaboration and the
+software development community in general. With the release of this cloud
+package, remote, pair programming becomes easier, and the possibilities for
+remote collaboration are greater in general.
 * Budget
+The plan as proposed will require a team of about 8 people, two server
+architects, code developers on the code editor back-end, and three web
+developers on the web interface, and will take approximately 6 months. The
+developers will be working full-time throughout the project. However, the server
+administrators can most likely work part time after the first month. Thus,
+assuming the wage for each person on the team is about $30 per hour, the project
+in total will require about $215,000.
+* Problems
+This project is relatively big, and so will require a somewhat large team of
+developers working quickly to minimize the total cost to develop the proposed
+system. With little room for error, this project in the end could require more
+money than budgeted.
 * Timeline
+The project timeline is straightforward. From the very beginning, all three
+groups can immediately begin working. Each server administrator should be able
+to configure the Ubuntu Docker and audio channel infrastructures respectively in
+the first month. After the first month, the server administrators need only be
+able to fix any issues the developers face when integrating with the docker and
+audio channel infrastructures, which is why they should only need to work part
+time after the first month. 
+
+After the first month, the rest of the project can be separated into two
+integration stages and a testing stage. At the web integration stage, which
+should begin at about the third month, the web and code editor developers will
+ensure that the web interface can appropriately interact with the code editor
+back end. For the server integration stage, which should begin at about the
+fourth month, the web developers will ensure that the web interface can
+appropriately facilitate communication over an audio channel. For the last two
+months, the developers will begin an open beta test in order to eliminate any
+remaining problems before release.
+
 bibliography:references.bib
